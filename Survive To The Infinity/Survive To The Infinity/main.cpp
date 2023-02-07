@@ -2,17 +2,28 @@
 #include "../LIB/INCLUDE/raylib.h"
 
 
-const int screenWidth = 600;
-const int screenHeight = 800;
+const int screenWidth = 1920;
+const int screenHeight = 1080;
 
 int velocity = 500;
+
+const int maxGrounds = 9;
 
 void playerUpdate();
 void playerDraw(); 
 void backgroundMove();
 
+struct point
+{
+    int x;
+    int y;
+};
+
 Rectangle player {screenWidth / 2 - 10, screenHeight / 2 - 10, 20, 20 };
 Rectangle camera {0, 0, screenWidth, screenHeight };
+
+point topLeft{ -screenWidth, -screenHeight };
+point bottomRight{ screenWidth, screenHeight };
 
 Rectangle Background1{ 0, 0, screenWidth, screenHeight };
 Rectangle Background2{ Background1.x, -Background1.height, screenWidth, screenHeight };
@@ -34,6 +45,12 @@ int main()
     {
        
         playerUpdate();
+
+        topLeft.x = Background1.x - screenWidth;
+        topLeft.y = Background1.y - screenHeight;
+
+        bottomRight.x = Background1.x + Background1.width + screenWidth;
+        bottomRight.y = Background1.y + Background1.height + screenHeight;
 
         Background2.x = Background1.x;
         Background2.y = Background1.y - Background1.height;
@@ -77,15 +94,29 @@ int main()
 
 void playerUpdate()
 {
-    if (CheckCollisionRecs(camera, Background1))
-    {
+    int count;
 
-        backgroundMove();
-    }
-    else
+
+    backgroundMove();
+
+    if (topLeft.x > 0)
     {
-        Background1.x = 0;
-        Background1.y = 0;
+        Background1.x = screenWidth;
+    }
+
+    if (topLeft.y > 0)
+    {
+        Background1.y = screenHeight;
+    }
+    
+    if (bottomRight.x < screenWidth)
+    {
+        Background1.x = -screenWidth;
+    }
+
+    if (bottomRight.y < screenHeight)
+    {
+        Background1.y = -screenHeight;
     }
 }
 
@@ -113,14 +144,17 @@ void backgroundMove()
     if (IsKeyDown(KEY_A))
     {
         Background1.x = Background1.x + velocity * GetFrameTime();
+
     }
     if (IsKeyDown(KEY_S))
     {
         Background1.y = Background1.y - velocity * GetFrameTime();
+
     }
     if (IsKeyDown(KEY_D))
     {
         Background1.x = Background1.x - velocity * GetFrameTime();
+
     }
 
 }
