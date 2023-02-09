@@ -1,6 +1,6 @@
 *.vs/
-Survive To The Infinity/obj
-Survive To The Infinity/bin
+obj/
+bin/
 
 # Prerequisites
 *.d
