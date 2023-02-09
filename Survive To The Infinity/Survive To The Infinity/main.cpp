@@ -104,7 +104,7 @@ void playerUpdate()
 {
 
     backgroundMove();
-    /*
+    
     if (topLeft.x > 0)
     {
         Background1.x = screenWidth;
@@ -124,7 +124,7 @@ void playerUpdate()
     {
         Background1.y = -screenHeight;
     }
-    */
+    
 }
 
 void playerDraw()
