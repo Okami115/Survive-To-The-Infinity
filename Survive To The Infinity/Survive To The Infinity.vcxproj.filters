@@ -11,6 +11,9 @@
     <Filter Include="Archivos de origen\Ground">
       <UniqueIdentifier>{ae9796f6-f68f-4f40-8d1c-4f7a9aa8a0a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Enemies">
+      <UniqueIdentifier>{6541dcdb-a931-494b-81a0-fb5a676c2fe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,6 +25,9 @@
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
       <Filter>Archivos de origen\Ground</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Enemies\Enemies.cpp">
+      <Filter>Archivos de origen\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -29,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Ground\Ground.h">
       <Filter>Archivos de origen\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Enemies\Enemies.h">
+      <Filter>Archivos de origen\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

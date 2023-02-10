@@ -142,11 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Ground\Ground.cpp" />
     <ClCompile Include="..\SRC\Player\Player.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Ground\Ground.h" />
     <ClInclude Include="..\SRC\Player\Player.h" />
   </ItemGroup>

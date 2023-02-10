@@ -1,12 +1,11 @@
 #include "../LIB/INCLUDE/raylib.h"
 #include "../SRC/Player/Player.h"
+#include "../SRC/Enemies/Enemies.h"
 #include "../SRC/Ground/Ground.h"
 
 
 int screenWidth = 600;
 int screenHeight = 800;
-
-int velocity = 500;
 
 extern Texture ground;
 extern Texture playerFront;
@@ -21,11 +20,15 @@ int main()
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");
 
+    enemiesSpawn();
+
     while (!WindowShouldClose())    
     {
         playerUpdate();
 
         backgroundUpdate();
+
+        enemiesUpdate();
 
 
         BeginDrawing();
@@ -35,6 +38,8 @@ int main()
         backgroundDraw();
 
         playerDraw();
+
+        enemiesDraw();
 
         DrawText("V0.1", 0, 0, 5, RED);
 

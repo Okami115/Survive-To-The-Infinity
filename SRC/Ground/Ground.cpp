@@ -3,7 +3,8 @@
 
 extern int screenHeight;
 extern int screenWidth;
-extern int velocity;
+
+int velocity = 500;
 
 Texture ground;
 
