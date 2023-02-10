@@ -10,6 +10,8 @@ int screenHeight = 800;
 extern Texture ground;
 extern Texture playerFront;
 extern Texture playerBack;
+extern Texture playerSideLeft;
+extern Texture playerSideRight;
 
 int main()
 {
@@ -19,6 +21,8 @@ int main()
     ground = LoadTexture("../RES/Ground.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");
+    playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
+    playerSideRight = LoadTexture("../RES/PlayerSideRight.png");
 
     enemiesSpawn();
 

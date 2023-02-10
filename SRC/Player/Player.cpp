@@ -15,6 +15,8 @@ Texture playerCurrentTexture;
 
 Texture playerFront;
 Texture playerBack;
+Texture playerSideLeft;
+Texture playerSideRight;
 
 int Rotation = 0;
 
@@ -30,7 +32,7 @@ void playerUpdate()
     }
     if (IsKeyDown(KEY_A))
     {
-        
+        playerCurrentTexture = playerSideLeft;
     }
     if (IsKeyDown(KEY_S))
     {
@@ -38,7 +40,7 @@ void playerUpdate()
     }
     if (IsKeyDown(KEY_D))
     {
-        
+        playerCurrentTexture = playerSideRight;
     }
 
 }

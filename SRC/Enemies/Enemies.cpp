@@ -36,6 +36,14 @@ void enemiesUpdate()
 		enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
 		enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
 
+        for (int j = 0; j < maxEnemies; j++)
+        {
+            if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
+            {
+
+            }
+        }
+
         if (IsKeyDown(KEY_W))
         {
             enemies[i].y = enemies[i].y + velocity * GetFrameTime();
