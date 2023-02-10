@@ -5,10 +5,30 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\Player">
+      <UniqueIdentifier>{03c6f404-7856-4aac-85ab-54d01070b739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Ground">
+      <UniqueIdentifier>{ae9796f6-f68f-4f40-8d1c-4f7a9aa8a0a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Player\Player.cpp">
+      <Filter>Archivos de origen\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\Ground\Ground.cpp">
+      <Filter>Archivos de origen\Ground</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\SRC\Player\Player.h">
+      <Filter>Archivos de origen\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Ground\Ground.h">
+      <Filter>Archivos de origen\Ground</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

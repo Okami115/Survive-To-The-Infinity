@@ -1,9 +1,36 @@
-﻿  Survive To The Infinity.cpp
-Survive To The Infinity.obj : error LNK2019: símbolo externo InitWindow sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo WindowShouldClose sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo ClearBackground sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo BeginDrawing sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo EndDrawing sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo SetTargetFPS sin resolver al que se hace referencia en la función main
-Survive To The Infinity.obj : error LNK2019: símbolo externo DrawText sin resolver al que se hace referencia en la función main
-C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\x64\Debug\Survive To The Infinity.exe : fatal error LNK1120: 7 externos sin resolver
+﻿  main.cpp
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(57,35): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(58,35): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(60,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(61,60): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(133,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(133,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(134,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(134,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(135,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(135,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(136,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(136,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(137,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(137,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(138,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(138,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(139,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(139,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(140,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(140,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(141,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(141,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\Survive To The Infinity\main.cpp(144,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+main.obj : error LNK2019: símbolo externo InitWindow sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo WindowShouldClose sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo ClearBackground sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo BeginDrawing sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo EndDrawing sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo GetFrameTime sin resolver al que se hace referencia en la función "void __cdecl backgroundMove(void)" (?backgroundMove@@YAXXZ)
+main.obj : error LNK2019: símbolo externo IsKeyDown sin resolver al que se hace referencia en la función "void __cdecl backgroundMove(void)" (?backgroundMove@@YAXXZ)
+main.obj : error LNK2019: símbolo externo LoadTexture sin resolver al que se hace referencia en la función main
+main.obj : error LNK2019: símbolo externo DrawTexture sin resolver al que se hace referencia en la función "void __cdecl playerDraw(void)" (?playerDraw@@YAXXZ)
+main.obj : error LNK2019: símbolo externo DrawTexturePro sin resolver al que se hace referencia en la función "void __cdecl playerDraw(void)" (?playerDraw@@YAXXZ)
+main.obj : error LNK2019: símbolo externo DrawText sin resolver al que se hace referencia en la función main
+C:\Users\tomas\Desktop\Survive-To-The-Infinity\Survive To The Infinity\x64\Debug\Survive To The Infinity.exe : fatal error LNK1120: 11 externos sin resolver
