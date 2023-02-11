@@ -7,11 +7,20 @@
 extern Rectangle player;
 extern int velocity;
 
+extern bool isInTheLeft;
+extern bool isInTheTop;
+extern bool isInTheRight;
+extern bool isInTheBottom;
+
+
 const int maxEnemies = 3;
 
-int EnemiesVelocity = 100;
+int EnemiesVelocity = 300;
+
+Texture EnemyBig;
 
 Rectangle enemies[maxEnemies];
+Rectangle enemiesSource[maxEnemies];
 Vector2 enemiesTrayectory[maxEnemies];
 
 void enemiesUpdate()
@@ -40,26 +49,30 @@ void enemiesUpdate()
         {
             if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
             {
-
+                //enemies[i].x = enemies[i].width / 2 - enemies[j].x - enemies[j].width / 2;
+                //enemies[i].y = enemies[i].height / 2 + enemies[j].y + enemies[j].height / 2;
             }
         }
 
-        if (IsKeyDown(KEY_W))
+
+        if (IsKeyDown(KEY_W) && !isInTheTop)
         {
             enemies[i].y = enemies[i].y + velocity * GetFrameTime();
         }
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) && !isInTheLeft)
         {
             enemies[i].x = enemies[i].x + velocity * GetFrameTime();
         }
-        if (IsKeyDown(KEY_S))
+        if (IsKeyDown(KEY_S) && !isInTheBottom)
         {
             enemies[i].y = enemies[i].y - velocity * GetFrameTime();
         }
-        if (IsKeyDown(KEY_D))
+        if (IsKeyDown(KEY_D) && !isInTheRight)
         {
             enemies[i].x = enemies[i].x - velocity * GetFrameTime();
         }
+
+        
 	}
 
 }
@@ -68,7 +81,9 @@ void enemiesDraw()
 {
     for (int i = 0; i < maxEnemies; i++)
     {
-        DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
+        //DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
+        Vector2 EnemiesOrigin{ enemies[i].width / 2 - 40, enemies[i].height / 2 - 40};
+        DrawTexturePro(EnemyBig, enemiesSource[i], enemies[i], EnemiesOrigin, 0, WHITE);
     }
 }
 
@@ -80,7 +95,9 @@ void enemiesSpawn()
         enemies[i].x = (static_cast <float>(rand() % GetScreenWidth())) * 2;
         enemies[i].y = (static_cast <float>(rand() % GetScreenHeight())) * 2;
 
-        enemies[i].width = 60;
-        enemies[i].height = 60;
+        enemiesSource[i] = { 0, 0, 40, 40 };
+
+        enemies[i].width = 80;
+        enemies[i].height = 80;
     }
 }

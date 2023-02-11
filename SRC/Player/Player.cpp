@@ -30,13 +30,13 @@ void playerUpdate()
     {
         playerCurrentTexture = playerBack;
     }
-    if (IsKeyDown(KEY_A))
-    {
-        playerCurrentTexture = playerSideLeft;
-    }
     if (IsKeyDown(KEY_S))
     {
         playerCurrentTexture = playerFront;
+    }
+    if (IsKeyDown(KEY_A))
+    {
+        playerCurrentTexture = playerSideLeft;
     }
     if (IsKeyDown(KEY_D))
     {

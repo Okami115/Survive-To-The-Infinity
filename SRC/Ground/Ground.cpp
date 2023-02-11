@@ -4,7 +4,14 @@
 extern int screenHeight;
 extern int screenWidth;
 
+extern Rectangle player;
+
 int velocity = 500;
+
+bool isInTheLeft = false;
+bool isInTheTop = false;
+bool isInTheRight = false;
+bool isInTheBottom = false;
 
 Texture ground;
 
@@ -40,26 +47,45 @@ void backgroundUpdate()
         Background1.x = Background1.x - velocity * GetFrameTime();
     }
 
+    if (topLeft.x < 0)
+    {
+        isInTheLeft = false;
+    }
+    if (topLeft.y < 0)
+    {
+        isInTheTop = false;
+    }
+    if (bottomRight.x > screenWidth + 1)
+    {
+        isInTheBottom = false;
+    }
+    if (bottomRight.y > screenHeight / 4 + player.height)
+    {
+        isInTheRight = false;
+    }
 
     if (topLeft.x > 0)
     {
         Background1.x = screenWidth;
+        isInTheLeft = true;
     }
-
     if (topLeft.y > 0)
     {
         Background1.y = screenHeight;
+        isInTheTop = true;
     }
-
     if (bottomRight.x < screenWidth)
     {
         Background1.x = -screenWidth;
+        isInTheBottom = true;
     }
-
     if (bottomRight.y < screenHeight)
     {
         Background1.y = -screenHeight;
+        isInTheRight = true;
     }
+
+
 
     topLeft.x = Background1.x - screenWidth;
     topLeft.y = Background1.y - screenHeight;
@@ -90,6 +116,8 @@ void backgroundUpdate()
 
     Background9.x = Background1.x + Background1.width;
     Background9.y = Background1.y + Background1.height;
+
+    
 
 }
 
