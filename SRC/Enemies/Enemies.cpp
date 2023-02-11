@@ -42,18 +42,17 @@ void enemiesUpdate()
 
 		enemiesTrayectory[i] = normalDir;
 
-		enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
-		enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
 
         for (int j = 0; j < maxEnemies; j++)
         {
             if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
             {
-                //enemies[i].x = enemies[i].width / 2 - enemies[j].x - enemies[j].width / 2;
-                //enemies[i].y = enemies[i].height / 2 + enemies[j].y + enemies[j].height / 2;
+                
             }
         }
 
+		enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
+		enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {

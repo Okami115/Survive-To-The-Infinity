@@ -9,6 +9,7 @@ int screenHeight = 800;
 
 extern Texture ground;
 
+extern Texture playerCurrentTexture;
 extern Texture playerFront;
 extern Texture playerBack;
 extern Texture playerSideLeft;
@@ -22,6 +23,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.1");
            
     ground = LoadTexture("../RES/Ground.png");
+    playerCurrentTexture = LoadTexture("../RES/PlayerFront.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");
     playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
