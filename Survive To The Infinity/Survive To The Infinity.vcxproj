@@ -75,7 +75,7 @@
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Survive To The Infinity</OutDir>
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,6 +112,13 @@
       <AdditionalDependencies>winmm.lib;raylib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
+    <PostBuildEvent>
+      <Command>DEL "$(SolutionDir)bin\$(Platform)\$(configuration)\RES" /q
+RMDIR "$(SolutionDir)bin\$(Platform)\$(configuration)\RES\" /q
+MKDIR "$(SolutionDir)bin\$(Platform)\$(configuration)\RES"
+XCOPY "$(SolutionDir)LIB\LIB" "$(SolutionDir)bin\$(Platform)\$(Configuration)" /e /h /y /s
+XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /e /h /y /s</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
