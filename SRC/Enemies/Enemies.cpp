@@ -80,8 +80,8 @@ void enemiesDraw()
 {
     for (int i = 0; i < maxEnemies; i++)
     {
-        //DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
-        Vector2 EnemiesOrigin{ enemies[i].width / 2 - 40, enemies[i].height / 2 - 40};
+        DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
+        Vector2 EnemiesOrigin{ 0, 0};
         DrawTexturePro(EnemyBig, enemiesSource[i], enemies[i], EnemiesOrigin, 0, WHITE);
     }
 }

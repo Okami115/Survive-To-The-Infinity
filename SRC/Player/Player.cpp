@@ -20,7 +20,7 @@ Texture playerSideRight;
 
 int Rotation = 0;
 
-Rectangle player{ screenWidth / 2, screenHeight / 2, 60, 60 };
+Rectangle player{ screenWidth / 2 - 30, screenHeight / 2 - 30, 60, 60 };
 Rectangle playerSource{ 0, 0, 30, 30 };
 Rectangle camera{ 0, 0, screenWidth, screenHeight };
 
@@ -47,8 +47,8 @@ void playerUpdate()
 
 void playerDraw()
 {
-
-    Vector2 PlayerPos{ player.width / 2, player.height / 2 };
+    DrawRectangle(player.x, player.y, player.width, player.height, BLUE);
+    Vector2 PlayerPos{ 0, 0 };
     DrawTexturePro(playerCurrentTexture, playerSource, player, PlayerPos, Rotation, WHITE);
 
 }
