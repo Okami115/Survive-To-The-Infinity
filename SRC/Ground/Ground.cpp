@@ -55,13 +55,13 @@ void backgroundUpdate()
     {
         isInTheTop = false;
     }
-    if (bottomRight.x > screenWidth + 1)
-    {
-        isInTheBottom = false;
-    }
-    if (bottomRight.y > screenHeight / 4 + player.height)
+    if (bottomRight.x != screenWidth)
     {
         isInTheRight = false;
+    }
+    if (bottomRight.y != screenHeight)
+    {
+        isInTheBottom = false;
     }
 
     if (topLeft.x > 0)
@@ -77,12 +77,12 @@ void backgroundUpdate()
     if (bottomRight.x < screenWidth)
     {
         Background1.x = -screenWidth;
-        isInTheBottom = true;
+        isInTheRight = true;
     }
     if (bottomRight.y < screenHeight)
     {
         Background1.y = -screenHeight;
-        isInTheRight = true;
+        isInTheBottom = true;
     }
 
 
