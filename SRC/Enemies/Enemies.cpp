@@ -34,42 +34,50 @@ void enemiesUpdate()
 		Dif.x = enemies[i].x - player.x;
 		Dif.y = enemies[i].y - player.y;
 
-		float arcTan = static_cast <float>(atan(Dif.y / Dif.x));
-
-		float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
-
-		normalDir = { Dif.x / Module, Dif.y / Module };
-
-		enemiesTrayectory[i] = normalDir;
-
-
-        for (int j = 0; j < maxEnemies; j++)
+        if (Dif.x == 0 && Dif.y == 0)
         {
-            if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
+            enemies[i].x = (static_cast <float>(rand() % GetScreenWidth())) * 2;
+            enemies[i].y = (static_cast <float>(rand() % GetScreenHeight())) * 2;
+        } 
+        else
+        {
+
+		    float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
+
+		    normalDir = { Dif.x / Module, Dif.y / Module };
+
+		    enemiesTrayectory[i] = normalDir;
+
+
+            for (int j = 0; j < maxEnemies; j++)
             {
+                if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
+                {
                 
+                }
+            }
+
+		    enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
+		    enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
+
+            if (IsKeyDown(KEY_W) && !isInTheTop)
+            {
+                enemies[i].y = enemies[i].y + velocity * GetFrameTime();
+            }
+            if (IsKeyDown(KEY_A) && !isInTheLeft)
+            {
+                enemies[i].x = enemies[i].x + velocity * GetFrameTime();
+            }
+            if (IsKeyDown(KEY_S) && !isInTheBottom)
+            {
+                enemies[i].y = enemies[i].y - velocity * GetFrameTime();
+            }
+            if (IsKeyDown(KEY_D) && !isInTheRight)
+            {
+                enemies[i].x = enemies[i].x - velocity * GetFrameTime();
             }
         }
 
-		enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
-		enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
-
-        if (IsKeyDown(KEY_W) && !isInTheTop)
-        {
-            enemies[i].y = enemies[i].y + velocity * GetFrameTime();
-        }
-        if (IsKeyDown(KEY_A) && !isInTheLeft)
-        {
-            enemies[i].x = enemies[i].x + velocity * GetFrameTime();
-        }
-        if (IsKeyDown(KEY_S) && !isInTheBottom)
-        {
-            enemies[i].y = enemies[i].y - velocity * GetFrameTime();
-        }
-        if (IsKeyDown(KEY_D) && !isInTheRight)
-        {
-            enemies[i].x = enemies[i].x - velocity * GetFrameTime();
-        }
 
         
 	}
