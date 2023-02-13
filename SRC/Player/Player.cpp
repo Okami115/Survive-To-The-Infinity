@@ -2,6 +2,7 @@
 
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../Ground/Ground.h"
+#include "../Bullets/Bullets.h"
 
 
 extern int screenHeight;
@@ -26,6 +27,8 @@ Rectangle camera{ 0, 0, screenWidth, screenHeight };
 
 void playerUpdate()
 {
+    shoot();
+
     if (IsKeyDown(KEY_W))
     {
         playerCurrentTexture = playerBack;
@@ -47,7 +50,7 @@ void playerUpdate()
 
 void playerDraw()
 {
-    DrawRectangle(player.x, player.y, player.width, player.height, BLUE);
+    //DrawRectangle(player.x, player.y, player.width, player.height, BLUE);
     Vector2 PlayerPos{ 0, 0 };
     DrawTexturePro(playerCurrentTexture, playerSource, player, PlayerPos, Rotation, WHITE);
 

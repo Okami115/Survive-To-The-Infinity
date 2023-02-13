@@ -14,6 +14,9 @@
     <Filter Include="Archivos de origen\Enemies">
       <UniqueIdentifier>{6541dcdb-a931-494b-81a0-fb5a676c2fe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Bullets">
+      <UniqueIdentifier>{37b0f0f6-7a2f-4d44-b449-84b7e810509f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -28,6 +31,9 @@
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp">
       <Filter>Archivos de origen\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Bullets\Bullets.cpp">
+      <Filter>Archivos de origen\Bullets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -38,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Enemies\Enemies.h">
       <Filter>Archivos de origen\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Bullets\Bullets.h">
+      <Filter>Archivos de origen\Bullets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

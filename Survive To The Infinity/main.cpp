@@ -2,6 +2,7 @@
 #include "../SRC/Player/Player.h"
 #include "../SRC/Enemies/Enemies.h"
 #include "../SRC/Ground/Ground.h"
+#include "../SRC/Bullets/Bullets.h"
 
 
 int screenWidth = 600;
@@ -31,6 +32,7 @@ int main()
     EnemyBig = LoadTexture("../RES/EnemyBig.png");
 
     enemiesSpawn();
+    initBullets();
 
     while (!WindowShouldClose())    
     {
@@ -39,6 +41,8 @@ int main()
         backgroundUpdate();
 
         enemiesUpdate();
+
+        bulletsUpdate();
 
 
         BeginDrawing();
@@ -50,6 +54,8 @@ int main()
         playerDraw();
 
         enemiesDraw();
+
+        bulletsDraw();
 
         DrawText("V0.1", 0, 0, 5, RED);
 

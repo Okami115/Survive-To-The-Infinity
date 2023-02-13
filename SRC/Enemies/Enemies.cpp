@@ -13,7 +13,7 @@ extern bool isInTheRight;
 extern bool isInTheBottom;
 
 
-const int maxEnemies = 3;
+const int maxEnemies = 1;
 
 int EnemiesVelocity = 300;
 
@@ -88,7 +88,7 @@ void enemiesDraw()
 {
     for (int i = 0; i < maxEnemies; i++)
     {
-        DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
+        //DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
         Vector2 EnemiesOrigin{ 0, 0};
         DrawTexturePro(EnemyBig, enemiesSource[i], enemies[i], EnemiesOrigin, 0, WHITE);
     }
