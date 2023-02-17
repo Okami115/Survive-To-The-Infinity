@@ -19,11 +19,15 @@ extern Texture playerSideRight;
 
 extern Texture EnemyBig;
 
+bool isPaused = false;
+
 
 int main()
 {
 
     InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.1");
+
+    SetExitKey(KEY_NULL);
            
     ground = LoadTexture("../RES/Ground.png");
     playerCurrentTexture = LoadTexture("../RES/PlayerFront.png");
@@ -38,13 +42,28 @@ int main()
 
     while (!WindowShouldClose())    
     {
-        playerUpdate();
+        if (!isPaused)
+        {
+            playerUpdate();
 
-        backgroundUpdate();
+            backgroundUpdate();
 
-        enemiesUpdate();
+            enemiesUpdate();
 
-        bulletsUpdate();
+            bulletsUpdate();
+        }
+
+        if (IsKeyReleased(KEY_ESCAPE))
+        {
+            if (isPaused)
+            {
+                isPaused = false;
+            }
+            else
+            {
+                isPaused = true;
+            }
+        }
 
 
         BeginDrawing();
@@ -53,11 +72,11 @@ int main()
         
         backgroundDraw();
 
+        bulletsDraw();
+
         playerDraw();
 
         enemiesDraw();
-
-        bulletsDraw();
 
         DrawText("V0.1", 0, 0, 5, RED);
         DrawText(TextFormat("Lives: %i", playerLives), screenWidth - 100, 5, 25, RED);
