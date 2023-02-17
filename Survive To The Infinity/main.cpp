@@ -10,6 +10,7 @@ int screenHeight = 800;
 
 extern Texture ground;
 
+extern int playerLives;
 extern Texture playerCurrentTexture;
 extern Texture playerFront;
 extern Texture playerBack;
@@ -17,6 +18,7 @@ extern Texture playerSideLeft;
 extern Texture playerSideRight;
 
 extern Texture EnemyBig;
+
 
 int main()
 {
@@ -58,6 +60,7 @@ int main()
         bulletsDraw();
 
         DrawText("V0.1", 0, 0, 5, RED);
+        DrawText(TextFormat("Lives: %i", playerLives), screenWidth - 100, 5, 25, RED);
 
         EndDrawing();
         

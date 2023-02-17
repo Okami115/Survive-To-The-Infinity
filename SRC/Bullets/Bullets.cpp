@@ -5,10 +5,6 @@
 
 extern Rectangle player;
 
-const int maxEnemies = 5;
-extern int currentEnemies;
-extern Rectangle enemies[maxEnemies];
-
 extern int velocity;
 
 extern bool isInTheLeft;

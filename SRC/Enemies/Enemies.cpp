@@ -40,52 +40,45 @@ void enemiesUpdate()
 		Dif.x = enemies[i].x - player.x;
 		Dif.y = enemies[i].y - player.y;
 
-        if (Dif.x == 0 && Dif.y == 0)
+
+	    float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
+
+	    normalDir = { Dif.x / Module, Dif.y / Module };
+
+	    enemiesTrayectory[i] = normalDir;
+
+
+        for (int j = 0; j < maxEnemies; j++)
         {
-            enemiesSpawn(enemies[i]);
-        } 
-        else
-        {
-
-		    float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
-
-		    normalDir = { Dif.x / Module, Dif.y / Module };
-
-		    enemiesTrayectory[i] = normalDir;
-
-
-            for (int j = 0; j < maxEnemies; j++)
+            if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
             {
-                if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
-                {
-                
-                }
-            }
-
-		    enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
-		    enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
-
-            if (IsKeyDown(KEY_W) && !isInTheTop)
-            {
-                enemies[i].y = enemies[i].y + velocity * GetFrameTime();
-            }
-            if (IsKeyDown(KEY_A) && !isInTheLeft)
-            {
-                enemies[i].x = enemies[i].x + velocity * GetFrameTime();
-            }
-            if (IsKeyDown(KEY_S) && !isInTheBottom)
-            {
-                enemies[i].y = enemies[i].y - velocity * GetFrameTime();
-            }
-            if (IsKeyDown(KEY_D) && !isInTheRight)
-            {
-                enemies[i].x = enemies[i].x - velocity * GetFrameTime();
+            
             }
         }
 
+	    enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
+	    enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
+
+        if (IsKeyDown(KEY_W) && !isInTheTop)
+        {
+            enemies[i].y = enemies[i].y + velocity * GetFrameTime();
+        }
+        if (IsKeyDown(KEY_A) && !isInTheLeft)
+        {
+            enemies[i].x = enemies[i].x + velocity * GetFrameTime();
+        }
+        if (IsKeyDown(KEY_S) && !isInTheBottom)
+        {
+            enemies[i].y = enemies[i].y - velocity * GetFrameTime();
+        }
+        if (IsKeyDown(KEY_D) && !isInTheRight)
+        {
+            enemies[i].x = enemies[i].x - velocity * GetFrameTime();
+        }
+        
+
         for (int j = 0; j < maxBullets; j++)
         {
-            
             Vector2 BulletsPos = { Bullets[j].x, Bullets[j].y };
 
             if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i]))

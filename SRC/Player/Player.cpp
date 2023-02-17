@@ -3,6 +3,7 @@
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../Ground/Ground.h"
 #include "../Bullets/Bullets.h"
+#include "../Enemies/Enemies.h"
 
 
 extern int screenHeight;
@@ -11,6 +12,13 @@ extern int screenWidth;
 extern Rectangle Background1;
 extern Vector2 topLeft;
 extern Vector2 bottomRight;
+
+const int maxEnemies = 5;
+extern int currentEnemies;
+extern Rectangle enemies[maxEnemies];
+
+
+int playerLives = 3;
 
 Texture playerCurrentTexture;
 
@@ -44,6 +52,15 @@ void playerUpdate()
     if (IsKeyDown(KEY_D))
     {
         playerCurrentTexture = playerSideRight;
+    }
+
+    for (int i = 0; i < currentEnemies; i++)
+    {
+        if (CheckCollisionRecs(player, enemies[i]))
+        {
+            playerLives--;
+            enemiesSpawn(enemies[i]);
+        }
     }
 
 }
