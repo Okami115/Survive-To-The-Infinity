@@ -1,8 +1,6 @@
 #pragma once
-#include "../../LIB/INCLUDE/raylib.h"
 
-void initEnemies();
+void enemiesSpawn();
 
 void enemiesUpdate();
 void enemiesDraw();
-void enemiesSpawn(Rectangle& enemy);

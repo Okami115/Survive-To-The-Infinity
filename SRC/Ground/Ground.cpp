@@ -28,11 +28,6 @@ Rectangle Background7{ Background1.width, -Background1.height, screenWidth, scre
 Rectangle Background8{ -Background1.width, Background1.height, screenWidth, screenHeight };
 Rectangle Background9{ Background1.width, Background1.height, screenWidth, screenHeight };
 
-Rectangle Line1{ 0, 0, 5, screenHeight * 2 };
-Rectangle Line2{ 0, 0, screenWidth * 2, 5};
-Rectangle Line3{ 0, 0, 5, screenHeight * 2 };
-Rectangle Line4{ 0, 0, screenWidth * 2, 5};
-
 void backgroundUpdate()
 {
     if (IsKeyDown(KEY_W))
@@ -98,18 +93,6 @@ void backgroundUpdate()
     bottomRight.x = Background1.x + Background1.width + screenWidth;
     bottomRight.y = Background1.y + Background1.height + screenHeight;
 
-    Line1.x = topLeft.x + screenWidth / 2;
-    Line1.y = topLeft.y + screenHeight / 2;
-
-    Line2.x = topLeft.x + screenWidth / 2;
-    Line2.y = topLeft.y + screenHeight / 2;
-
-    Line3.x = topLeft.x + screenWidth * 2.5f;
-    Line3.y = topLeft.y + screenHeight / 2;    
-    
-    Line4.x = topLeft.x + screenWidth / 2;
-    Line4.y = topLeft.y + screenHeight * 2.5f;
-
     Background2.x = Background1.x;
     Background2.y = Background1.y - Background1.height;
 
@@ -149,9 +132,4 @@ void backgroundDraw()
     DrawTexture(ground, Background7.x, Background7.y, WHITE);
     DrawTexture(ground, Background8.x, Background8.y, WHITE);
     DrawTexture(ground, Background9.x, Background9.y, WHITE);
-
-    DrawRectangle(Line1.x, Line1.y, Line1.width, Line1.height, RED);
-    DrawRectangle(Line2.x, Line2.y, Line2.width, Line2.height, RED);
-    DrawRectangle(Line3.x, Line3.y, Line3.width, Line3.height, RED);
-    DrawRectangle(Line4.x, Line4.y, Line4.width, Line4.height, RED);
 }
