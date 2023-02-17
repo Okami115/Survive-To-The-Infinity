@@ -20,16 +20,6 @@ float rateFire = 0.1f;
 int currentBullets = 0;
 int bulletsVelocity = 1000;
 
-
-struct Bullet
-{
-	float x;
-	float y;
-	int radius;
-	Vector2 bulletsTrayectory;
-	bool isTravelling;
-};
-
 Bullet Bullets[maxBullets];
 
 void bulletsUpdate()

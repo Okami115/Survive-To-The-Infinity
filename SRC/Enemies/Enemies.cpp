@@ -3,9 +3,13 @@
 #include <iostream>
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../../LIB/INCLUDE/raymath.h"
+#include "../Bullets/Bullets.h"
 
 extern Rectangle player;
 extern int velocity;
+
+const int maxBullets = 100;
+extern Bullet Bullets[maxBullets];
 
 extern bool isInTheLeft;
 extern bool isInTheTop;
@@ -13,7 +17,9 @@ extern bool isInTheRight;
 extern bool isInTheBottom;
 
 
-const int maxEnemies = 1;
+const int maxEnemies = 5;
+
+int currentEnemies = 1;
 
 int EnemiesVelocity = 300;
 
@@ -26,7 +32,7 @@ Vector2 enemiesTrayectory[maxEnemies];
 void enemiesUpdate()
 {
 
-	for (int i = 0; i < maxEnemies; i++)
+	for (int i = 0; i < currentEnemies; i++)
 	{
 		Vector2 normalDir = { 0,0 };
 		Vector2 Dif = { 0,0 };
@@ -36,8 +42,7 @@ void enemiesUpdate()
 
         if (Dif.x == 0 && Dif.y == 0)
         {
-            enemies[i].x = (static_cast <float>(rand() % GetScreenWidth())) * 2;
-            enemies[i].y = (static_cast <float>(rand() % GetScreenHeight())) * 2;
+            enemiesSpawn(enemies[i]);
         } 
         else
         {
@@ -78,15 +83,27 @@ void enemiesUpdate()
             }
         }
 
+        for (int j = 0; j < maxBullets; j++)
+        {
+            
+            Vector2 BulletsPos = { Bullets[j].x, Bullets[j].y };
 
-        
+            if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i]))
+            {
+                enemiesSpawn(enemies[i]);
+
+                if (currentEnemies < maxEnemies)
+                {
+                   currentEnemies++;
+                }
+            }
+        }
 	}
-
 }
 
 void enemiesDraw()
 {
-    for (int i = 0; i < maxEnemies; i++)
+    for (int i = 0; i < currentEnemies; i++)
     {
         //DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
         Vector2 EnemiesOrigin{ 0, 0};
@@ -94,17 +111,49 @@ void enemiesDraw()
     }
 }
 
-void enemiesSpawn()
+void initEnemies()
 {
 
     for (int i = 0; i < maxEnemies; i++)
     {
-        enemies[i].x = (static_cast <float>(rand() % GetScreenWidth())) * 2;
-        enemies[i].y = (static_cast <float>(rand() % GetScreenHeight())) * 2;
+        enemiesSpawn(enemies[i]);
 
         enemiesSource[i] = { 0, 0, 40, 40 };
 
         enemies[i].width = 80;
         enemies[i].height = 80;
+    }
+}
+
+void enemiesSpawn(Rectangle& enemy)
+{
+    int selectPos = rand()% 4;
+
+    if (selectPos == 0)
+    {
+        enemy.x = (static_cast <float>(rand() % GetScreenWidth()));
+        enemy.y = GetScreenHeight() + (enemy.height * 2);
+
+    }
+
+    if (selectPos == 1)
+    {
+        enemy.x = (static_cast <float>(rand() % GetScreenWidth()));
+        enemy.y = 0 - (enemy.height * 2);
+
+    }
+
+    if (selectPos == 2)
+    {
+        enemy.x = GetScreenWidth() + (enemy.width * 2);
+        enemy.y = (static_cast <float>(rand() % GetScreenHeight()));
+
+    }
+
+    if (selectPos == 3)
+    {
+        enemy.x = 0 - (enemy.width * 2);
+        enemy.y = (static_cast <float>(rand() % GetScreenHeight()));
+
     }
 }

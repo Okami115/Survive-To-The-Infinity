@@ -31,7 +31,7 @@ int main()
     playerSideRight = LoadTexture("../RES/PlayerSideRight.png");
     EnemyBig = LoadTexture("../RES/EnemyBig.png");
 
-    enemiesSpawn();
+    initEnemies();
     initBullets();
 
     while (!WindowShouldClose())    
