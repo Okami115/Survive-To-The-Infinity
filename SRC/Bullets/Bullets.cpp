@@ -5,7 +5,7 @@
 
 extern Rectangle player;
 
-extern int velocity;
+extern int playerVelocity;
 
 extern bool isInTheLeft;
 extern bool isInTheTop;
@@ -15,7 +15,7 @@ extern bool isInTheBottom;
 const int maxBullets = 100;
 
 float timer = 0;
-float rateFire = 0.1f;
+extern float rateFire;
 
 int currentBullets = 0;
 int bulletsVelocity = 1000;
@@ -33,19 +33,19 @@ void bulletsUpdate()
 
 			if (IsKeyDown(KEY_W) && !isInTheTop)
 			{
-				Bullets[i].y = Bullets[i].y + velocity * GetFrameTime();
+				Bullets[i].y = Bullets[i].y + playerVelocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_A) && !isInTheLeft)
 			{
-				Bullets[i].x = Bullets[i].x + velocity * GetFrameTime();
+				Bullets[i].x = Bullets[i].x + playerVelocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_S) && !isInTheBottom)
 			{
-				Bullets[i].y = Bullets[i].y - velocity * GetFrameTime();
+				Bullets[i].y = Bullets[i].y - playerVelocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_D) && !isInTheRight)
 			{
-				Bullets[i].x = Bullets[i].x - velocity * GetFrameTime();
+				Bullets[i].x = Bullets[i].x - playerVelocity * GetFrameTime();
 			}
 
 			if (Bullets[i].x < 0 || Bullets[i].y < 0 || Bullets[i].x > GetScreenWidth() || Bullets[i].y > GetScreenHeight())

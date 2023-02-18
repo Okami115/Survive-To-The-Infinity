@@ -150,6 +150,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Bullets\Bullets.cpp" />
+    <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp" />
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Ground\Ground.cpp" />
     <ClCompile Include="..\SRC\Player\Player.cpp" />
@@ -157,6 +158,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Bullets\Bullets.h" />
+    <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h" />
     <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Ground\Ground.h" />
     <ClInclude Include="..\SRC\Player\Player.h" />

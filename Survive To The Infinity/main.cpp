@@ -1,12 +1,16 @@
 #include "../LIB/INCLUDE/raylib.h"
+
 #include "../SRC/Player/Player.h"
 #include "../SRC/Enemies/Enemies.h"
 #include "../SRC/Ground/Ground.h"
 #include "../SRC/Bullets/Bullets.h"
+#include "../SRC/ChoiceMenu/ChoiceMenu.h"
 
 
 int screenWidth = 600;
 int screenHeight = 800;
+
+extern bool isChoosing;
 
 extern Texture ground;
 
@@ -53,7 +57,7 @@ int main()
             bulletsUpdate();
         }
 
-        if (IsKeyReleased(KEY_ESCAPE))
+        if (IsKeyReleased(KEY_ESCAPE) && !isChoosing)
         {
             if (isPaused)
             {
@@ -64,6 +68,8 @@ int main()
                 isPaused = true;
             }
         }
+
+        choiceMenuUpdate();
 
 
         BeginDrawing();
@@ -77,6 +83,8 @@ int main()
         playerDraw();
 
         enemiesDraw();
+
+        choiceMenuDraw();
 
         DrawText("V0.1", 0, 0, 5, RED);
         DrawText(TextFormat("Lives: %i", playerLives), screenWidth - 100, 5, 25, RED);

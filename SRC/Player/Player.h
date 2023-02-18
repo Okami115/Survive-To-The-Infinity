@@ -2,4 +2,5 @@
 
 
 void playerUpdate();
-void playerDraw();
+void playerDraw(); 
+void levelUp();

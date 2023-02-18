@@ -17,13 +17,13 @@
     <Filter Include="Archivos de origen\Bullets">
       <UniqueIdentifier>{37b0f0f6-7a2f-4d44-b449-84b7e810509f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\choiceMenu">
+      <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SRC\Player\Player.cpp">
-      <Filter>Archivos de origen\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
       <Filter>Archivos de origen\Ground</Filter>
@@ -33,6 +33,12 @@
     </ClCompile>
     <ClCompile Include="..\SRC\Bullets\Bullets.cpp">
       <Filter>Archivos de origen\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\Player\Player.cpp">
+      <Filter>Archivos de origen\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp">
+      <Filter>Archivos de origen\choiceMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Bullets\Bullets.h">
       <Filter>Archivos de origen\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h">
+      <Filter>Archivos de origen\choiceMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

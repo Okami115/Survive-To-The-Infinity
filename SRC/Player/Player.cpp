@@ -17,8 +17,19 @@ const int maxEnemies = 5;
 extern int currentEnemies;
 extern Rectangle enemies[maxEnemies];
 
+extern bool isPaused;
+
+
+int maxExperience = 5;
+float experienceEscalation = 1.3f;
 
 int playerLives = 3;
+int currentExperience = 0;
+int playerVelocity = 500;
+float rateFire = 0.1f;
+int collisionRadius = 30;
+
+bool isChoosing = false;
 
 Texture playerCurrentTexture;
 
@@ -36,6 +47,11 @@ Rectangle camera{ 0, 0, screenWidth, screenHeight };
 void playerUpdate()
 {
     shoot();
+
+    if (currentExperience >= maxExperience)
+    {
+        levelUp();
+    }
 
     if (IsKeyDown(KEY_W))
     {
@@ -72,3 +88,13 @@ void playerDraw()
     DrawTexturePro(playerCurrentTexture, playerSource, player, PlayerPos, Rotation, WHITE);
 
 }
+
+void levelUp()
+{
+    currentExperience = 0;
+    maxExperience = maxExperience * experienceEscalation;
+    isPaused = true;
+    isChoosing = true;
+
+}
+

@@ -6,7 +6,7 @@ extern int screenWidth;
 
 extern Rectangle player;
 
-int velocity = 500;
+extern int playerVelocity;
 
 bool isInTheLeft = false;
 bool isInTheTop = false;
@@ -37,19 +37,19 @@ void backgroundUpdate()
 {
     if (IsKeyDown(KEY_W))
     {
-        Background1.y = Background1.y + velocity * GetFrameTime();
+        Background1.y = Background1.y + playerVelocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_A))
     {
-        Background1.x = Background1.x + velocity * GetFrameTime();
+        Background1.x = Background1.x + playerVelocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_S))
     {
-        Background1.y = Background1.y - velocity * GetFrameTime();
+        Background1.y = Background1.y - playerVelocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_D))
     {
-        Background1.x = Background1.x - velocity * GetFrameTime();
+        Background1.x = Background1.x - playerVelocity * GetFrameTime();
     }
 
     if (topLeft.x < 0)

@@ -6,7 +6,7 @@
 #include "../Bullets/Bullets.h"
 
 extern Rectangle player;
-extern int velocity;
+extern int playerVelocity;
 
 const int maxBullets = 100;
 extern Bullet Bullets[maxBullets];
@@ -16,6 +16,7 @@ extern bool isInTheTop;
 extern bool isInTheRight;
 extern bool isInTheBottom;
 
+extern int currentExperience;
 
 const int maxEnemies = 5;
 
@@ -61,19 +62,19 @@ void enemiesUpdate()
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {
-            enemies[i].y = enemies[i].y + velocity * GetFrameTime();
+            enemies[i].y = enemies[i].y + playerVelocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_A) && !isInTheLeft)
         {
-            enemies[i].x = enemies[i].x + velocity * GetFrameTime();
+            enemies[i].x = enemies[i].x + playerVelocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_S) && !isInTheBottom)
         {
-            enemies[i].y = enemies[i].y - velocity * GetFrameTime();
+            enemies[i].y = enemies[i].y - playerVelocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_D) && !isInTheRight)
         {
-            enemies[i].x = enemies[i].x - velocity * GetFrameTime();
+            enemies[i].x = enemies[i].x - playerVelocity * GetFrameTime();
         }
         
 
@@ -88,6 +89,7 @@ void enemiesUpdate()
                 Bullets[j].x = player.x + player.width / 2;
                 Bullets[j].y = player.y + player.height / 2;
                 Bullets[j].isTravelling = false;
+                currentExperience = currentExperience + 2;
 
                 if (currentEnemies < maxEnemies)
                 {
