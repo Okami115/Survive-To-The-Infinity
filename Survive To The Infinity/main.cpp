@@ -34,7 +34,7 @@ bool isPaused = false;
 int main()
 {
 
-    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.1");
+    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.2");
 
     SetExitKey(KEY_NULL);
 
@@ -97,7 +97,7 @@ int main()
 
         choiceMenuDraw();
 
-        DrawText("V0.1", 0, 0, 5, RED);
+        DrawText("V0.2", 0, 0, 5, RED);
         DrawText(TextFormat("Lives: %i", playerLives), screenWidth - 100, 5, 25, RED);
 
         EndDrawing();
