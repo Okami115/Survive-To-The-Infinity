@@ -5,6 +5,7 @@
 #include "../SRC/Ground/Ground.h"
 #include "../SRC/Bullets/Bullets.h"
 #include "../SRC/ChoiceMenu/ChoiceMenu.h"
+#include "../SRC/Buttons/Buttons.h"
 
 
 int screenWidth = 600;
@@ -23,6 +24,10 @@ extern Texture playerSideRight;
 
 extern Texture EnemyBig;
 
+extern Texture normalButton;
+extern Texture SelectButton;
+extern Texture BlockedButton;
+
 bool isPaused = false;
 
 
@@ -32,17 +37,23 @@ int main()
     InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.1");
 
     SetExitKey(KEY_NULL);
-           
+
     ground = LoadTexture("../RES/Ground.png");
     playerCurrentTexture = LoadTexture("../RES/PlayerFront.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");
     playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
     playerSideRight = LoadTexture("../RES/PlayerSideRight.png");
+
     EnemyBig = LoadTexture("../RES/EnemyBig.png");
+
+    normalButton = LoadTexture("../RES/Button.png");
+    SelectButton = LoadTexture("../RES/GreenButton.png");
+    BlockedButton = LoadTexture("../RES/RedButton.png");
 
     initEnemies();
     initBullets();
+    initButtons();
 
     while (!WindowShouldClose())    
     {

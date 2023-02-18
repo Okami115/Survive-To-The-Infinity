@@ -20,6 +20,9 @@
     <Filter Include="Archivos de origen\choiceMenu">
       <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Buttons">
+      <UniqueIdentifier>{02b2315a-3bac-4c41-9e2d-5d1e4de0ad9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,6 +43,9 @@
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp">
       <Filter>Archivos de origen\choiceMenu</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Buttons\Buttons.cpp">
+      <Filter>Archivos de origen\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -56,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h">
       <Filter>Archivos de origen\choiceMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Buttons\Buttons.h">
+      <Filter>Archivos de origen\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

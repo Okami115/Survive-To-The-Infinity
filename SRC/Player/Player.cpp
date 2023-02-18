@@ -21,13 +21,13 @@ extern bool isPaused;
 
 
 int maxExperience = 5;
+int currentExperience = 0;
 float experienceEscalation = 1.3f;
 
 int playerLives = 3;
-int currentExperience = 0;
-int playerVelocity = 500;
-float rateFire = 0.1f;
-int collisionRadius = 30;
+int playerVelocity = 300;
+float rateFire = 0.5f;
+int collisionRadius = 50;
 
 bool isChoosing = false;
 
