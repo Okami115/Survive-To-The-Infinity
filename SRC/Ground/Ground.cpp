@@ -1,12 +1,12 @@
 #include "Ground.h"
+
 #include "../../LIB/INCLUDE/raylib.h"
+#include "../Player/Player.h"
 
 extern int screenHeight;
 extern int screenWidth;
 
-extern Rectangle player;
-
-extern int playerVelocity;
+extern Player player;
 
 bool isInTheLeft = false;
 bool isInTheTop = false;
@@ -37,19 +37,19 @@ void backgroundUpdate()
 {
     if (IsKeyDown(KEY_W))
     {
-        Background1.y = Background1.y + playerVelocity * GetFrameTime();
+        Background1.y = Background1.y + player.velocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_A))
     {
-        Background1.x = Background1.x + playerVelocity * GetFrameTime();
+        Background1.x = Background1.x + player.velocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_S))
     {
-        Background1.y = Background1.y - playerVelocity * GetFrameTime();
+        Background1.y = Background1.y - player.velocity * GetFrameTime();
     }
     if (IsKeyDown(KEY_D))
     {
-        Background1.x = Background1.x - playerVelocity * GetFrameTime();
+        Background1.x = Background1.x - player.velocity * GetFrameTime();
     }
 
     if (topLeft.x < 0)

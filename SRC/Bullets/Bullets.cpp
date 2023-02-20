@@ -2,10 +2,9 @@
 
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../../LIB/INCLUDE/raymath.h"
+#include "../Player/Player.h"
 
-extern Rectangle player;
-
-extern int playerVelocity;
+extern Player player;
 
 extern bool isInTheLeft;
 extern bool isInTheTop;
@@ -15,7 +14,6 @@ extern bool isInTheBottom;
 const int maxBullets = 100;
 
 float timer = 0;
-extern float rateFire;
 
 int currentBullets = 0;
 int bulletsVelocity = 1000;
@@ -33,25 +31,25 @@ void bulletsUpdate()
 
 			if (IsKeyDown(KEY_W) && !isInTheTop)
 			{
-				Bullets[i].y = Bullets[i].y + playerVelocity * GetFrameTime();
+				Bullets[i].y = Bullets[i].y + player.velocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_A) && !isInTheLeft)
 			{
-				Bullets[i].x = Bullets[i].x + playerVelocity * GetFrameTime();
+				Bullets[i].x = Bullets[i].x + player.velocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_S) && !isInTheBottom)
 			{
-				Bullets[i].y = Bullets[i].y - playerVelocity * GetFrameTime();
+				Bullets[i].y = Bullets[i].y - player.velocity * GetFrameTime();
 			}
 			if (IsKeyDown(KEY_D) && !isInTheRight)
 			{
-				Bullets[i].x = Bullets[i].x - playerVelocity * GetFrameTime();
+				Bullets[i].x = Bullets[i].x - player.velocity * GetFrameTime();
 			}
 
 			if (Bullets[i].x < 0 || Bullets[i].y < 0 || Bullets[i].x > GetScreenWidth() || Bullets[i].y > GetScreenHeight())
 			{
-				Bullets[i].x = player.x + player.width / 2;
-				Bullets[i].y = player.y + player.height / 2;
+				Bullets[i].x = player.pos.x;
+				Bullets[i].y = player.pos.y;
 				Bullets[i].isTravelling = false;
 			}
 		}
@@ -71,7 +69,7 @@ void shoot()
 {
 	
 	timer = timer + GetFrameTime();
-	if (timer > rateFire)
+	if (timer > player.rateFire)
 	{
 		if (IsKeyDown(KEY_UP))
 		{
@@ -122,8 +120,8 @@ void initBullets()
 	for (int i = 0; i < maxBullets; i++)
 	{
 		Bullets[i].radius = 5;
-		Bullets[i].x = player.x + player.width / 2;
-		Bullets[i].y = player.y + player.height / 2;
+		Bullets[i].x = player.pos.x;
+		Bullets[i].y = player.pos.y;
 		Bullets[i].isTravelling = false;
 	}
 }

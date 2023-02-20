@@ -2,6 +2,7 @@
 
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../Buttons/Buttons.h"
+#include "../Player/Player.h"
 
 
 extern int screenWidth;
@@ -10,10 +11,7 @@ extern int screenHeight;
 extern bool isPaused;
 extern bool isChoosing;
 
-extern int playerLives;
-extern int playerVelocity;
-extern float rateFire;
-extern int collisionRadius;
+extern Player player;
 
 extern const int maxChoiceMenuButtons = 4;
 extern Button ChoiceMenuButtons[maxChoiceMenuButtons];
@@ -37,14 +35,14 @@ void choiceMenuUpdate()
 					setButtonTexture(ChoiceMenuButtons[i], 1);
 					if(IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 					{
-						playerLives++;
+						player.lives++;
 						isChoosing = false;
 						isPaused = false;
 					}
 				}
 				else if (i == 1)
 				{
-					if (playerVelocity == 500)
+					if (player.velocity == 500)
 					{
 						setButtonTexture(ChoiceMenuButtons[i], 2);
 					}
@@ -53,7 +51,7 @@ void choiceMenuUpdate()
 						setButtonTexture(ChoiceMenuButtons[i], 1);
 						if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 						{
-							playerVelocity = playerVelocity + 100;
+							player.velocity = player.velocity + 100;
 							isChoosing = false;
 							isPaused = false;
 						}
@@ -61,7 +59,7 @@ void choiceMenuUpdate()
 				}
 				else if (i == 2)
 				{
-					if (rateFire < 0.2f)
+					if (player.rateFire < 0.2f)
 					{
 						setButtonTexture(ChoiceMenuButtons[i], 2);
 					}
@@ -70,7 +68,7 @@ void choiceMenuUpdate()
 						setButtonTexture(ChoiceMenuButtons[i], 1);
 						if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 						{
-							rateFire = rateFire - 0.1f;
+							player.rateFire = player.rateFire - 0.1f;
 							isChoosing = false;
 							isPaused = false;
 						}
@@ -79,16 +77,16 @@ void choiceMenuUpdate()
 				}
 				else if (i == 3)
 				{
-					if (collisionRadius == 30)
+					if (player.collisionRadius == 20)
 					{
-						setButtonTexture(ChoiceMenuButtons[i], 3);
+						setButtonTexture(ChoiceMenuButtons[i], 2);
 					}
 					else
 					{
 						setButtonTexture(ChoiceMenuButtons[i], 1);
 						if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 						{
-							collisionRadius = collisionRadius - 10;
+							player.collisionRadius = player.collisionRadius - 5;
 							isChoosing = false;
 							isPaused = false;
 						}

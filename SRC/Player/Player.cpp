@@ -20,81 +20,94 @@ extern Rectangle enemies[maxEnemies];
 extern bool isPaused;
 
 
-int maxExperience = 5;
-int currentExperience = 0;
-float experienceEscalation = 1.3f;
-
-int playerLives = 3;
-int playerVelocity = 300;
-float rateFire = 0.5f;
-int collisionRadius = 50;
-
 bool isChoosing = false;
 
-Texture playerCurrentTexture;
+int maxExperience = 5;
+float experienceEscalation = 1.3f;
 
 Texture playerFront;
 Texture playerBack;
 Texture playerSideLeft;
 Texture playerSideRight;
 
-int Rotation = 0;
-
-Rectangle player{ screenWidth / 2 - 30, screenHeight / 2 - 30, 60, 60 };
-Rectangle playerSource{ 0, 0, 30, 30 };
-Rectangle camera{ 0, 0, screenWidth, screenHeight };
+Player player;
 
 void playerUpdate()
 {
     shoot();
 
-    if (currentExperience >= maxExperience)
+    if (player.currentExperience >= maxExperience)
     {
         levelUp();
     }
 
     if (IsKeyDown(KEY_W))
     {
-        playerCurrentTexture = playerBack;
+        player.currentTexture = playerBack;
     }
     if (IsKeyDown(KEY_S))
     {
-        playerCurrentTexture = playerFront;
+        player.currentTexture = playerFront;
     }
     if (IsKeyDown(KEY_A))
     {
-        playerCurrentTexture = playerSideLeft;
+        player.currentTexture = playerSideLeft;
     }
     if (IsKeyDown(KEY_D))
     {
-        playerCurrentTexture = playerSideRight;
+        player.currentTexture = playerSideRight;
     }
 
     for (int i = 0; i < currentEnemies; i++)
     {
-        if (CheckCollisionRecs(player, enemies[i]))
+        if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i]))
         {
-            playerLives--;
+            player.lives--;
             enemiesSpawn(enemies[i]);
         }
     }
+
+    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2 };
 
 }
 
 void playerDraw()
 {
-    //DrawRectangle(player.x, player.y, player.width, player.height, BLUE);
-    Vector2 PlayerPos{ 0, 0 };
-    DrawTexturePro(playerCurrentTexture, playerSource, player, PlayerPos, Rotation, WHITE);
+    Vector2 originPlayerPos{ 0, 0 };
+    DrawTexturePro(player.currentTexture, player.source, player.dest, originPlayerPos, player.rotation, WHITE);
 
 }
 
 void levelUp()
 {
-    currentExperience = 0;
+    player.currentExperience = 0;
     maxExperience = maxExperience * experienceEscalation;
     isPaused = true;
     isChoosing = true;
 
 }
 
+void initPlayer()
+{
+    player.currentExperience = 0;
+
+    player.lives = 3;
+
+    player.velocity = 300;
+
+    player.rateFire = 0.5f;
+
+    player.collisionRadius = 40;
+
+    player.rotation = 0;
+
+    player.currentTexture;
+
+    player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };
+
+    player.source = { 0, 0, 30, 30};
+
+    player.pos = { (float)screenWidth / 2, (float)screenHeight / 2};
+
+    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2};
+}

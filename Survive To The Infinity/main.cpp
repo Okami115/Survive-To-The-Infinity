@@ -15,8 +15,8 @@ extern bool isChoosing;
 
 extern Texture ground;
 
-extern int playerLives;
-extern Texture playerCurrentTexture;
+extern Player player;
+
 extern Texture playerFront;
 extern Texture playerBack;
 extern Texture playerSideLeft;
@@ -34,12 +34,13 @@ bool isPaused = false;
 int main()
 {
 
+
     InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.2");
 
     SetExitKey(KEY_NULL);
 
     ground = LoadTexture("../RES/Ground.png");
-    playerCurrentTexture = LoadTexture("../RES/PlayerFront.png");
+    player.currentTexture = LoadTexture("../RES/PlayerFront.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");
     playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
@@ -51,6 +52,7 @@ int main()
     SelectButton = LoadTexture("../RES/GreenButton.png");
     BlockedButton = LoadTexture("../RES/RedButton.png");
 
+    initPlayer();
     initEnemies();
     initBullets();
     initButtons();
@@ -98,7 +100,7 @@ int main()
         choiceMenuDraw();
 
         DrawText("V0.2", 0, 0, 5, RED);
-        DrawText(TextFormat("Lives: %i", playerLives), screenWidth - 100, 5, 25, RED);
+        DrawText(TextFormat("Lives: %i", player.lives), screenWidth - 100, 5, 25, RED);
 
         EndDrawing();
         

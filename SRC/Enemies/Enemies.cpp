@@ -4,9 +4,9 @@
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../../LIB/INCLUDE/raymath.h"
 #include "../Bullets/Bullets.h"
+#include "../Player/Player.h"
 
-extern Rectangle player;
-extern int playerVelocity;
+extern Player player;
 
 const int maxBullets = 100;
 extern Bullet Bullets[maxBullets];
@@ -15,8 +15,6 @@ extern bool isInTheLeft;
 extern bool isInTheTop;
 extern bool isInTheRight;
 extern bool isInTheBottom;
-
-extern int currentExperience;
 
 const int maxEnemies = 5;
 
@@ -38,8 +36,8 @@ void enemiesUpdate()
 		Vector2 normalDir = { 0,0 };
 		Vector2 Dif = { 0,0 };
 
-		Dif.x = enemies[i].x - player.x;
-		Dif.y = enemies[i].y - player.y;
+		Dif.x = enemies[i].x - player.pos.x;
+		Dif.y = enemies[i].y - player.pos.y;
 
 
 	    float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
@@ -48,33 +46,24 @@ void enemiesUpdate()
 
 	    enemiesTrayectory[i] = normalDir;
 
-
-        for (int j = 0; j < maxEnemies; j++)
-        {
-            if (i != j && CheckCollisionRecs(enemies[i], enemies[j]))
-            {
-            
-            }
-        }
-
 	    enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
 	    enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {
-            enemies[i].y = enemies[i].y + playerVelocity * GetFrameTime();
+            enemies[i].y = enemies[i].y + player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_A) && !isInTheLeft)
         {
-            enemies[i].x = enemies[i].x + playerVelocity * GetFrameTime();
+            enemies[i].x = enemies[i].x + player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_S) && !isInTheBottom)
         {
-            enemies[i].y = enemies[i].y - playerVelocity * GetFrameTime();
+            enemies[i].y = enemies[i].y - player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_D) && !isInTheRight)
         {
-            enemies[i].x = enemies[i].x - playerVelocity * GetFrameTime();
+            enemies[i].x = enemies[i].x - player.velocity * GetFrameTime();
         }
         
 
@@ -86,10 +75,10 @@ void enemiesUpdate()
             {
                 enemiesSpawn(enemies[i]);
 
-                Bullets[j].x = player.x + player.width / 2;
-                Bullets[j].y = player.y + player.height / 2;
+                Bullets[j].x = player.pos.x;
+                Bullets[j].y = player.pos.y;
                 Bullets[j].isTravelling = false;
-                currentExperience = currentExperience + 2;
+                player.currentExperience = player.currentExperience + 2;
 
                 if (currentEnemies < maxEnemies)
                 {
