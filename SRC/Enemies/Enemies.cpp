@@ -70,12 +70,18 @@ void enemiesUpdate()
 
             if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i].dest))
             {
-                enemiesSpawn(enemies[i]);
 
                 Bullets[j].x = player.pos.x;
                 Bullets[j].y = player.pos.y;
                 Bullets[j].isTravelling = false;
-                player.currentExperience = player.currentExperience + 2;
+                
+                enemies[i].lives--;
+
+                if (enemies[i].lives <= 0)
+                {
+                    enemiesSpawn(enemies[i]);
+                    player.currentExperience = player.currentExperience + enemies[i].id + 1;
+                }
 
                 if (currentEnemies < maxEnemies)
                 {
