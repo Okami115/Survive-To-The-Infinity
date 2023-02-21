@@ -123,13 +123,14 @@ void enemiesSpawn(Enemy& enemy)
 
     if (enemy.id == 0)
     {
-        enemy.lives = 3;
-        enemy.velocity = 100;
-        enemy.currentTexture = BigEnemy;
-        enemy.source = { 0, 0, 40, 40 };
+        enemy.lives = 1;
+        enemy.velocity = 500;
+        enemy.currentTexture = LittleEnemy;
+        enemy.source = { 0, 0, 20, 20 };
+        enemy.damage = 5;
 
-        enemy.dest.width = 80;
-        enemy.dest.height = 80;
+        enemy.dest.width = 40;
+        enemy.dest.height = 40;
     }
     if (enemy.id == 1)
     {
@@ -137,19 +138,21 @@ void enemiesSpawn(Enemy& enemy)
         enemy.velocity = 300;
         enemy.currentTexture = MediumEnemy;
         enemy.source = { 0, 0, 20, 30 };
+        enemy.damage = 7;
 
         enemy.dest.width = 40;
         enemy.dest.height = 60;
     }
     if (enemy.id == 2)
     {
-        enemy.lives = 1;
-        enemy.velocity = 500;
-        enemy.currentTexture = LittleEnemy;
-        enemy.source = { 0, 0, 20, 20 };
+        enemy.lives = 3;
+        enemy.velocity = 100;
+        enemy.currentTexture = BigEnemy;
+        enemy.source = { 0, 0, 40, 40 };
+        enemy.damage = 10;
 
-        enemy.dest.width = 40;
-        enemy.dest.height = 40;
+        enemy.dest.width = 80;
+        enemy.dest.height = 80;
     }
 
 

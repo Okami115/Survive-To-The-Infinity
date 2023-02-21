@@ -9,6 +9,8 @@ struct Enemy
 
 	int velocity;
 
+	int damage;
+
 	int id;
 
 	Vector2 pos;

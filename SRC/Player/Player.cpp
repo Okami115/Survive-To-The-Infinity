@@ -61,7 +61,7 @@ void playerUpdate()
     {
         if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i].dest))
         {
-            player.lives--;
+            player.lives = player.lives - enemies[i].damage;
             enemiesSpawn(enemies[i]);
         }
     }
