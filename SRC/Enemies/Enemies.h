@@ -5,6 +5,8 @@
 
 struct Enemy
 {
+	int lives;
+
 	int velocity;
 
 	int id;

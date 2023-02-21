@@ -20,9 +20,9 @@ const int maxEnemies = 5;
 
 int currentEnemies = 1;
 
-int EnemiesVelocity = 300;
-
-Texture EnemyBig;
+Texture BigEnemy;
+Texture MediumEnemy;
+Texture LittleEnemy;
 
 Enemy enemies[maxEnemies];
 
@@ -44,8 +44,8 @@ void enemiesUpdate()
 
 	    enemies[i].trayectory = normalDir;
 
-	    enemies[i].pos.x -= enemies[i].trayectory.x * EnemiesVelocity * GetFrameTime();
-	    enemies[i].pos.y -= enemies[i].trayectory.y * EnemiesVelocity * GetFrameTime();
+	    enemies[i].pos.x -= enemies[i].trayectory.x * enemies[i].velocity * GetFrameTime();
+	    enemies[i].pos.y -= enemies[i].trayectory.y * enemies[i].velocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {
@@ -94,7 +94,7 @@ void enemiesDraw()
 {
     for (int i = 0; i < currentEnemies; i++)
     {
-        DrawRectangle(enemies[i].dest.x, enemies[i].dest.y, enemies[i].dest.width, enemies[i].dest.height, RED);
+        //DrawRectangle(enemies[i].dest.x, enemies[i].dest.y, enemies[i].dest.width, enemies[i].dest.height, RED);
         Vector2 EnemiesOrigin{ 0, 0};
         DrawTexturePro(enemies[i].currentTexture, enemies[i].source, enemies[i].dest, EnemiesOrigin, 0, WHITE);
     }
@@ -106,39 +106,46 @@ void initEnemies()
     for (int i = 0; i < maxEnemies; i++)
     {
         enemiesSpawn(enemies[i]);
-
-        enemies[i].id = 0;
-
-        if (enemies[i].id == 0)
-        {
-            enemies[i].currentTexture = EnemyBig;
-            enemies[i].source = { 0, 0, 40, 40 };
-
-            enemies[i].dest.width = 80;
-            enemies[i].dest.height = 80;
-        }
-        if (enemies[i].id == 1)
-        {
-            enemies[i].currentTexture = EnemyBig;
-            enemies[i].source = { 0, 0, 40, 40 };
-
-            enemies[i].dest.width = 80;
-            enemies[i].dest.height = 80;
-        }
-        if (enemies[i].id == 2)
-        {
-            enemies[i].currentTexture = EnemyBig;
-            enemies[i].source = { 0, 0, 40, 40 };
-
-            enemies[i].dest.width = 80;
-            enemies[i].dest.height = 80;
-        }
     }
 }
 
 void enemiesSpawn(Enemy& enemy)
 {
     int selectPos = rand()% 4;
+
+    enemy.id = rand() % 3;
+
+    if (enemy.id == 0)
+    {
+        enemy.lives = 3;
+        enemy.velocity = 100;
+        enemy.currentTexture = BigEnemy;
+        enemy.source = { 0, 0, 40, 40 };
+
+        enemy.dest.width = 80;
+        enemy.dest.height = 80;
+    }
+    if (enemy.id == 1)
+    {
+        enemy.lives = 2;
+        enemy.velocity = 300;
+        enemy.currentTexture = MediumEnemy;
+        enemy.source = { 0, 0, 20, 30 };
+
+        enemy.dest.width = 40;
+        enemy.dest.height = 60;
+    }
+    if (enemy.id == 2)
+    {
+        enemy.lives = 1;
+        enemy.velocity = 500;
+        enemy.currentTexture = LittleEnemy;
+        enemy.source = { 0, 0, 20, 20 };
+
+        enemy.dest.width = 40;
+        enemy.dest.height = 40;
+    }
+
 
     if (selectPos == 0)
     {

@@ -22,7 +22,9 @@ extern Texture playerBack;
 extern Texture playerSideLeft;
 extern Texture playerSideRight;
 
-extern Texture EnemyBig;
+extern Texture BigEnemy;
+extern Texture MediumEnemy;
+extern Texture LittleEnemy;
 
 extern Texture normalButton;
 extern Texture SelectButton;
@@ -46,7 +48,9 @@ int main()
     playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
     playerSideRight = LoadTexture("../RES/PlayerSideRight.png");
 
-    EnemyBig = LoadTexture("../RES/EnemyBig.png");
+    BigEnemy = LoadTexture("../RES/big_enemy.png");
+    MediumEnemy = LoadTexture("../RES/medium_enemy.png");
+    LittleEnemy = LoadTexture("../RES/little_enemy.png");
 
     normalButton = LoadTexture("../RES/Button.png");
     SelectButton = LoadTexture("../RES/GreenButton.png");
