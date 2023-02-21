@@ -72,6 +72,13 @@ int main()
             enemiesUpdate();
 
             bulletsUpdate();
+
+            hudUpdate();
+        }
+
+        if (isChoosing)
+        {
+            choiceMenuUpdate();
         }
 
         if (IsKeyReleased(KEY_ESCAPE) && !isChoosing)
@@ -86,9 +93,7 @@ int main()
             }
         }
 
-        choiceMenuUpdate();
 
-        hudUpdate();
 
         BeginDrawing();
 
