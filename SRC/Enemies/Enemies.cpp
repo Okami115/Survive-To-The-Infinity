@@ -24,9 +24,7 @@ int EnemiesVelocity = 300;
 
 Texture EnemyBig;
 
-Rectangle enemies[maxEnemies];
-Rectangle enemiesSource[maxEnemies];
-Vector2 enemiesTrayectory[maxEnemies];
+Enemy enemies[maxEnemies];
 
 void enemiesUpdate()
 {
@@ -36,42 +34,41 @@ void enemiesUpdate()
 		Vector2 normalDir = { 0,0 };
 		Vector2 Dif = { 0,0 };
 
-		Dif.x = enemies[i].x - player.pos.x;
-		Dif.y = enemies[i].y - player.pos.y;
+		Dif.x = enemies[i].pos.x - player.pos.x;
+		Dif.y = enemies[i].pos.y - player.pos.y;
 
 
 	    float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
 
 	    normalDir = { Dif.x / Module, Dif.y / Module };
 
-	    enemiesTrayectory[i] = normalDir;
+	    enemies[i].trayectory = normalDir;
 
-	    enemies[i].x -= enemiesTrayectory[i].x * EnemiesVelocity * GetFrameTime();
-	    enemies[i].y -= enemiesTrayectory[i].y * EnemiesVelocity * GetFrameTime();
+	    enemies[i].pos.x -= enemies[i].trayectory.x * EnemiesVelocity * GetFrameTime();
+	    enemies[i].pos.y -= enemies[i].trayectory.y * EnemiesVelocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {
-            enemies[i].y = enemies[i].y + player.velocity * GetFrameTime();
+            enemies[i].pos.y = enemies[i].pos.y + player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_A) && !isInTheLeft)
         {
-            enemies[i].x = enemies[i].x + player.velocity * GetFrameTime();
+            enemies[i].pos.x = enemies[i].pos.x + player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_S) && !isInTheBottom)
         {
-            enemies[i].y = enemies[i].y - player.velocity * GetFrameTime();
+            enemies[i].pos.y = enemies[i].pos.y - player.velocity * GetFrameTime();
         }
         if (IsKeyDown(KEY_D) && !isInTheRight)
         {
-            enemies[i].x = enemies[i].x - player.velocity * GetFrameTime();
+            enemies[i].pos.x = enemies[i].pos.x - player.velocity * GetFrameTime();
         }
-        
 
         for (int j = 0; j < maxBullets; j++)
         {
             Vector2 BulletsPos = { Bullets[j].x, Bullets[j].y };
 
-            if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i]))
+            if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i].dest))
             {
                 enemiesSpawn(enemies[i]);
 
@@ -86,6 +83,10 @@ void enemiesUpdate()
                 }
             }
         }
+
+        enemies[i].dest.x = enemies[i].pos.x;
+        enemies[i].dest.y = enemies[i].pos.y;
+
 	}
 }
 
@@ -93,9 +94,9 @@ void enemiesDraw()
 {
     for (int i = 0; i < currentEnemies; i++)
     {
-        //DrawRectangle(enemies[i].x, enemies[i].y, enemies[i].width, enemies[i].height, RED);
+        DrawRectangle(enemies[i].dest.x, enemies[i].dest.y, enemies[i].dest.width, enemies[i].dest.height, RED);
         Vector2 EnemiesOrigin{ 0, 0};
-        DrawTexturePro(EnemyBig, enemiesSource[i], enemies[i], EnemiesOrigin, 0, WHITE);
+        DrawTexturePro(enemies[i].currentTexture, enemies[i].source, enemies[i].dest, EnemiesOrigin, 0, WHITE);
     }
 }
 
@@ -106,42 +107,64 @@ void initEnemies()
     {
         enemiesSpawn(enemies[i]);
 
-        enemiesSource[i] = { 0, 0, 40, 40 };
+        enemies[i].id = 0;
 
-        enemies[i].width = 80;
-        enemies[i].height = 80;
+        if (enemies[i].id == 0)
+        {
+            enemies[i].currentTexture = EnemyBig;
+            enemies[i].source = { 0, 0, 40, 40 };
+
+            enemies[i].dest.width = 80;
+            enemies[i].dest.height = 80;
+        }
+        if (enemies[i].id == 1)
+        {
+            enemies[i].currentTexture = EnemyBig;
+            enemies[i].source = { 0, 0, 40, 40 };
+
+            enemies[i].dest.width = 80;
+            enemies[i].dest.height = 80;
+        }
+        if (enemies[i].id == 2)
+        {
+            enemies[i].currentTexture = EnemyBig;
+            enemies[i].source = { 0, 0, 40, 40 };
+
+            enemies[i].dest.width = 80;
+            enemies[i].dest.height = 80;
+        }
     }
 }
 
-void enemiesSpawn(Rectangle& enemy)
+void enemiesSpawn(Enemy& enemy)
 {
     int selectPos = rand()% 4;
 
     if (selectPos == 0)
     {
-        enemy.x = (static_cast <float>(rand() % GetScreenWidth()));
-        enemy.y = GetScreenHeight() + (enemy.height * 2);
+        enemy.pos.x = (static_cast <float>(rand() % GetScreenWidth()));
+        enemy.pos.y = GetScreenHeight() + (enemy.dest.height * 2);
 
     }
 
     if (selectPos == 1)
     {
-        enemy.x = (static_cast <float>(rand() % GetScreenWidth()));
-        enemy.y = 0 - (enemy.height * 2);
+        enemy.pos.x = (static_cast <float>(rand() % GetScreenWidth()));
+        enemy.pos.y = 0 - (enemy.dest.height * 2);
 
     }
 
     if (selectPos == 2)
     {
-        enemy.x = GetScreenWidth() + (enemy.width * 2);
-        enemy.y = (static_cast <float>(rand() % GetScreenHeight()));
+        enemy.pos.x = GetScreenWidth() + (enemy.dest.width * 2);
+        enemy.pos.y = (static_cast <float>(rand() % GetScreenHeight()));
 
     }
 
     if (selectPos == 3)
     {
-        enemy.x = 0 - (enemy.width * 2);
-        enemy.y = (static_cast <float>(rand() % GetScreenHeight()));
+        enemy.pos.x = 0 - (enemy.dest.width * 2);
+        enemy.pos.y = (static_cast <float>(rand() % GetScreenHeight()));
 
     }
 }

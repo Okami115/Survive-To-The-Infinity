@@ -15,7 +15,7 @@ extern Vector2 bottomRight;
 
 const int maxEnemies = 5;
 extern int currentEnemies;
-extern Rectangle enemies[maxEnemies];
+extern Enemy enemies[maxEnemies];
 
 extern bool isPaused;
 
@@ -60,7 +60,7 @@ void playerUpdate()
 
     for (int i = 0; i < currentEnemies; i++)
     {
-        if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i]))
+        if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i].dest))
         {
             player.lives--;
             enemiesSpawn(enemies[i]);
