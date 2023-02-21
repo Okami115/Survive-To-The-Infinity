@@ -36,7 +36,7 @@ bool isPaused = false;
 
 int main()
 {
-    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.4");
+    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.5");
 
     SetExitKey(KEY_NULL);
 

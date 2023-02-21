@@ -13,7 +13,7 @@ extern bool isInTheBottom;
 
 const int maxBullets = 100;
 
-float timer = 0;
+static float timer = 0;
 
 int currentBullets = 0;
 int bulletsVelocity = 1000;

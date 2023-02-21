@@ -14,6 +14,10 @@ Rectangle playerLiveCurrent;
 Rectangle playerXPMax;
 Rectangle playerXPCurrent;
 
+static int timerSec = 0;
+static int timerMin = 0;
+static float timerMilli = 0;
+
 float currentLives = player.maxLives;
 float currentXP = 0;
 
@@ -24,12 +28,33 @@ void hudUpdate()
 
 	playerLiveCurrent.width = currentLives;
 	playerXPCurrent.width = currentXP;
+
+	timerMilli = timerMilli + GetFrameTime();
+
+	if (timerMilli > 1)
+	{
+		timerSec++;
+		timerMilli = 0;
+	}
+
+	if (timerSec > 59)
+	{
+		timerSec = 0;
+		timerMin++;
+
+	}
+
 }
 
 
 void hudDraw()
 {
-	DrawText("V0.4", 0, screenHeight - 10, 10, RED);
+	DrawText("V0.5", 0, screenHeight - 30, 20, RED);
+
+	DrawText(TextFormat("%02i", timerSec), 50, 15, 30, RED);
+	DrawText(":", 43, 15, 30, RED);
+	DrawText(TextFormat("%02i", timerMin), 5, 15, 30, RED);
+
 	DrawRectangle(playerLiveMax.x, playerLiveMax.y, playerLiveMax.width, playerLiveMax.height, RED);
 	DrawRectangle(playerLiveCurrent.x, playerLiveCurrent.y, playerLiveCurrent.width, playerLiveCurrent.height, GREEN);
 
