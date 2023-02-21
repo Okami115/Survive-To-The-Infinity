@@ -5,8 +5,8 @@
 #include "../Player/Player.h"
 
 
-extern int screenWidth;
-extern int screenHeight;
+extern float screenWidth;
+extern float screenHeight;
 
 extern bool isPaused;
 extern bool isChoosing;

@@ -4,9 +4,11 @@
 
 struct Player
 {
-	int currentExperience;
-
+	int maxLives;
 	int lives;
+
+	int maxExperience;
+	int currentExperience;
 
 	int velocity;
 

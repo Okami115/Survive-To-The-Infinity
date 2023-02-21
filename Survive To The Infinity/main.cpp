@@ -6,10 +6,11 @@
 #include "../SRC/Bullets/Bullets.h"
 #include "../SRC/ChoiceMenu/ChoiceMenu.h"
 #include "../SRC/Buttons/Buttons.h"
+#include "../SRC/HUD/HUD.h"
 
 
-int screenWidth = 600;
-int screenHeight = 800;
+float screenWidth = 600;
+float screenHeight = 800;
 
 extern bool isChoosing;
 
@@ -35,9 +36,7 @@ bool isPaused = false;
 
 int main()
 {
-
-
-    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.2");
+    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.4");
 
     SetExitKey(KEY_NULL);
 
@@ -60,6 +59,7 @@ int main()
     initEnemies();
     initBullets();
     initButtons();
+    initHUD();
 
     while (!WindowShouldClose())    
     {
@@ -88,6 +88,7 @@ int main()
 
         choiceMenuUpdate();
 
+        hudUpdate();
 
         BeginDrawing();
 
@@ -103,8 +104,7 @@ int main()
 
         choiceMenuDraw();
 
-        DrawText("V0.2", 0, 0, 5, RED);
-        DrawText(TextFormat("Lives: %i", player.lives), screenWidth - 100, 5, 25, RED);
+        hudDraw();
 
         EndDrawing();
         

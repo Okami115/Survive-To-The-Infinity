@@ -6,8 +6,8 @@
 #include "../Enemies/Enemies.h"
 
 
-extern int screenHeight;
-extern int screenWidth;
+extern float screenHeight;
+extern float screenWidth;
 
 extern Rectangle Background1;
 extern Vector2 topLeft;
@@ -22,7 +22,6 @@ extern bool isPaused;
 
 bool isChoosing = false;
 
-int maxExperience = 5;
 float experienceEscalation = 1.3f;
 
 Texture playerFront;
@@ -36,7 +35,7 @@ void playerUpdate()
 {
     shoot();
 
-    if (player.currentExperience >= maxExperience)
+    if (player.currentExperience >= player.maxExperience)
     {
         levelUp();
     }
@@ -81,7 +80,7 @@ void playerDraw()
 void levelUp()
 {
     player.currentExperience = 0;
-    maxExperience = maxExperience * experienceEscalation;
+    player.maxExperience = player.maxExperience * experienceEscalation;
     isPaused = true;
     isChoosing = true;
 
@@ -89,9 +88,11 @@ void levelUp()
 
 void initPlayer()
 {
-    player.currentExperience = 0;
+    player.maxLives = 100;
+    player.lives = player.maxLives;
 
-    player.lives = 3;
+    player.maxExperience = 5;
+    player.currentExperience = 0;
 
     player.velocity = 300;
 

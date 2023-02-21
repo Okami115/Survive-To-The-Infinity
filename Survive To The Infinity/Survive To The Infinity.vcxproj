@@ -154,6 +154,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp" />
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Ground\Ground.cpp" />
+    <ClCompile Include="..\SRC\HUD\HUD.cpp" />
     <ClCompile Include="..\SRC\Player\Player.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h" />
     <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Ground\Ground.h" />
+    <ClInclude Include="..\SRC\HUD\HUD.h" />
     <ClInclude Include="..\SRC\Player\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

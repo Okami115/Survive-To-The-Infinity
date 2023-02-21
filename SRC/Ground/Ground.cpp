@@ -3,8 +3,8 @@
 #include "../../LIB/INCLUDE/raylib.h"
 #include "../Player/Player.h"
 
-extern int screenHeight;
-extern int screenWidth;
+extern float screenHeight;
+extern float screenWidth;
 
 extern Player player;
 
