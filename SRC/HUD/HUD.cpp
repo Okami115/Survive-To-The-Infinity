@@ -14,12 +14,12 @@ Rectangle playerLiveCurrent;
 Rectangle playerXPMax;
 Rectangle playerXPCurrent;
 
-static int timerSec = 0;
-static int timerMin = 0;
-static float timerMilli = 0;
+static int timerSec;
+static int timerMin;
+static float timerMilli;
 
 float currentLives = player.maxLives;
-float currentXP = 0;
+float currentXP = player.currentExperience;
 
 void hudUpdate()
 {
@@ -68,5 +68,9 @@ void initHUD()
 	playerLiveCurrent = {0, 0, currentLives, 5};
 
 	playerXPMax = {0, screenHeight - 5, screenWidth, 5};
-	playerXPCurrent = { 0, screenHeight - 5, currentLives, 5 };;
+	playerXPCurrent = { 0, screenHeight - 5, currentLives, 5 };
+
+	timerSec = 0;
+	timerMin = 0;
+	timerMilli = 0;
 }

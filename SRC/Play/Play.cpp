@@ -9,9 +9,14 @@
 #include "../Buttons/Buttons.h"
 #include "../HUD/HUD.h"
 
-extern bool isChoosing;
+extern bool isChoosing; 
+extern int selectScreen;
+
+extern Player player;
+extern int currentEnemies;
 
 bool isPaused = false;
+
 
 void playUpdate()
 {
@@ -43,6 +48,20 @@ void playUpdate()
         {
             isPaused = true;
         }
+    }
+
+    if (player.lives <= 0)
+    {
+        initPlayer();
+
+        initEnemies();
+        currentEnemies = 1;
+
+        initBullets();
+
+        initHUD();
+        
+        selectScreen = 0;
     }
 }
 
