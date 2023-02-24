@@ -9,6 +9,7 @@
 #include "../HUD/HUD.h"
 
 #include "../Play/Play.h"
+#include "../MainMenu/MainMenu.h"
 
 extern Texture ground;
 
@@ -30,7 +31,7 @@ extern Texture BlockedButton;
 float screenWidth = 600;
 float screenHeight = 800;
 
-int selectScreen = 1;
+int selectScreen = 0;
 
 void initWindow()
 {
@@ -76,6 +77,7 @@ void game()
         {
             case 0:
             {
+                menuUpdate();
                 break;
             }
 
@@ -109,11 +111,13 @@ void game()
         }
 
         BeginDrawing();
+        ClearBackground(BLACK);
 
         switch (selectScreen)
         {
         case 0:
         {
+            menuDraw();
             break;
         }
 

@@ -32,11 +32,11 @@
     <Filter Include="Archivos de origen\Play">
       <UniqueIdentifier>{c2273c99-2cb2-4c90-b29d-d6d0e9251314}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\MainMenu">
+      <UniqueIdentifier>{fd3577a3-379f-46a5-aece-2855f6814a9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
       <Filter>Archivos de origen\Ground</Filter>
     </ClCompile>
@@ -63,6 +63,12 @@
     </ClCompile>
     <ClCompile Include="..\SRC\Play\Play.cpp">
       <Filter>Archivos de origen\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\MainMenu\MainMenu.cpp">
+      <Filter>Archivos de origen\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\main.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Play\Play.h">
       <Filter>Archivos de origen\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\MainMenu\MainMenu.h">
+      <Filter>Archivos de origen\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

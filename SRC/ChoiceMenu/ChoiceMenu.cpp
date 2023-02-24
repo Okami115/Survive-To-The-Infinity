@@ -16,8 +16,7 @@ extern Player player;
 extern const int maxChoiceMenuButtons = 4;
 extern Button ChoiceMenuButtons[maxChoiceMenuButtons];
 
-Rectangle baseMenu{ screenWidth / 10, screenHeight / 10, (screenWidth / 10) * 8, (screenHeight / 10) * 8 };
-
+extern Rectangle baseMenu;
 
 void choiceMenuUpdate()
 {
