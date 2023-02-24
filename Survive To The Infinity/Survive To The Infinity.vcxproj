@@ -152,20 +152,24 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClCompile Include="..\SRC\Bullets\Bullets.cpp" />
     <ClCompile Include="..\SRC\Buttons\Buttons.cpp" />
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp" />
+    <ClCompile Include="..\SRC\CoreLoop\CoreLoop.cpp" />
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Ground\Ground.cpp" />
     <ClCompile Include="..\SRC\HUD\HUD.cpp" />
     <ClCompile Include="..\SRC\Player\Player.cpp" />
+    <ClCompile Include="..\SRC\Play\Play.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Bullets\Bullets.h" />
     <ClInclude Include="..\SRC\Buttons\Buttons.h" />
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h" />
+    <ClInclude Include="..\SRC\CoreLoop\CoreLoop.h" />
     <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Ground\Ground.h" />
     <ClInclude Include="..\SRC\HUD\HUD.h" />
     <ClInclude Include="..\SRC\Player\Player.h" />
+    <ClInclude Include="..\SRC\Play\Play.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

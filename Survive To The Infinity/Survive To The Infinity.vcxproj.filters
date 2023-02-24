@@ -26,6 +26,12 @@
     <Filter Include="Archivos de origen\HUD">
       <UniqueIdentifier>{e42a89e3-b8d8-4a9b-99f2-9ea4c2cba5cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\CoreLoop">
+      <UniqueIdentifier>{467f1312-e2cc-422a-b74d-03e6cbc33c03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play">
+      <UniqueIdentifier>{c2273c99-2cb2-4c90-b29d-d6d0e9251314}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,6 +58,12 @@
     <ClCompile Include="..\SRC\HUD\HUD.cpp">
       <Filter>Archivos de origen\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\CoreLoop\CoreLoop.cpp">
+      <Filter>Archivos de origen\CoreLoop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\Play\Play.cpp">
+      <Filter>Archivos de origen\Play</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -74,6 +86,12 @@
     </ClInclude>
     <ClInclude Include="..\SRC\HUD\HUD.h">
       <Filter>Archivos de origen\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\CoreLoop\CoreLoop.h">
+      <Filter>Archivos de origen\CoreLoop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Play\Play.h">
+      <Filter>Archivos de origen\Play</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
