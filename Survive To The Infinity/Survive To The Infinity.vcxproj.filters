@@ -5,9 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Archivos de origen\Player">
-      <UniqueIdentifier>{03c6f404-7856-4aac-85ab-54d01070b739}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\CoreLoop">
       <UniqueIdentifier>{467f1312-e2cc-422a-b74d-03e6cbc33c03}</UniqueIdentifier>
     </Filter>
@@ -47,6 +44,12 @@
     <Filter Include="Archivos de origen\Buttons">
       <UniqueIdentifier>{02b2315a-3bac-4c41-9e2d-5d1e4de0ad9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Play\Player">
+      <UniqueIdentifier>{03c6f404-7856-4aac-85ab-54d01070b739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\Pause">
+      <UniqueIdentifier>{82092680-e370-4781-b59c-b9cd88246e9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
@@ -59,7 +62,7 @@
       <Filter>Archivos de origen\Play\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Player\Player.cpp">
-      <Filter>Archivos de origen\Player</Filter>
+      <Filter>Archivos de origen\Play\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp">
       <Filter>Archivos de origen\Play\choiceMenu</Filter>
@@ -94,10 +97,13 @@
     <ClCompile Include="..\SRC\Exit\Exit.cpp">
       <Filter>Archivos de origen\Exit</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Pause\Pause.cpp">
+      <Filter>Archivos de origen\Play\Pause</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
-      <Filter>Archivos de origen\Player</Filter>
+      <Filter>Archivos de origen\Play\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Ground\Ground.h">
       <Filter>Archivos de origen\Play\Ground</Filter>
@@ -137,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Exit\Exit.h">
       <Filter>Archivos de origen\Exit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Pause\Pause.h">
+      <Filter>Archivos de origen\Play\Pause</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

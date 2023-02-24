@@ -41,7 +41,7 @@ bool isRunning = true;
 
 void initWindow()
 {
-    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.5");
+    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.6");
 
     SetExitKey(KEY_NULL);
 

@@ -49,7 +49,7 @@ void hudUpdate()
 
 void hudDraw()
 {
-	DrawText("V0.5", 0, screenHeight - 30, 20, RED);
+	DrawText("V0.6", 0, screenHeight - 30, 20, RED);
 
 	DrawText(TextFormat("%02i", timerSec), 50, 15, 30, RED);
 	DrawText(":", 43, 15, 30, RED);

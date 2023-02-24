@@ -8,6 +8,7 @@
 #include "../ChoiceMenu/ChoiceMenu.h"
 #include "../Buttons/Buttons.h"
 #include "../HUD/HUD.h"
+#include "../Pause/Pause.h"
 
 extern bool isChoosing; 
 extern int selectScreen;
@@ -31,24 +32,26 @@ void playUpdate()
         bulletsUpdate();
 
         hudUpdate();
+
     }
+    
+    if(isPaused && !isChoosing)
+    {
+        pauseUpdate();
+    }
+
+    if (IsKeyReleased(KEY_ESCAPE))
+    {
+        isPaused = true;
+    }
+
 
     if (isChoosing)
     {
         choiceMenuUpdate();
     }
 
-    if (IsKeyReleased(KEY_ESCAPE) && !isChoosing)
-    {
-        if (isPaused)
-        {
-            isPaused = false;
-        }
-        else
-        {
-            isPaused = true;
-        }
-    }
+
 
     if (player.lives <= 0)
     {
@@ -77,7 +80,15 @@ void playDraw()
 
     enemiesDraw();
 
-    choiceMenuDraw();
+    if (isPaused && !isChoosing)
+    {
+        pauseDraw();
+    }
+
+    if (isChoosing)
+    {
+        choiceMenuDraw();
+    }
 
     hudDraw();
 
