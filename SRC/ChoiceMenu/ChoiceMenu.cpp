@@ -106,7 +106,9 @@ void choiceMenuDraw()
 {
 	if (isChoosing)
 	{
-		DrawText("Pick Upgrades", baseMenu.x * 2, baseMenu.y * 1.5f, 50, BLACK);
+
+		int TextWidth = MeasureText("Pick Upgrades", 50);
+		DrawText("Pick Upgrades", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 50, WHITE);
 
 		for (int i = 0; i < maxChoiceMenuButtons; i++)
 		{
@@ -117,26 +119,25 @@ void choiceMenuDraw()
 			case 0:
 			{
 				int TextWidth = MeasureText("More Lives", 30);
-				DrawText("More Lives", ChoiceMenuButtons[i].Box.x / 2 + TextWidth - 15, ChoiceMenuButtons[i].Box.y + ChoiceMenuButtons[i].Box.height / 2 - 15, 30, BLACK);
+				DrawText("More Lives", ChoiceMenuButtons[i].Box.x + (ChoiceMenuButtons[i].Box.width / 2 - TextWidth / 2), ChoiceMenuButtons[i].Box.y + (ChoiceMenuButtons[i].Box.height / 2) - 15, 30, BLACK);
 				break;
 			}
 			case 1:
 			{
 				int TextWidth = MeasureText("More Speed", 30);
-				DrawText("More Speed", ChoiceMenuButtons[i].Box.x / 2 + TextWidth - 30, ChoiceMenuButtons[i].Box.y + ChoiceMenuButtons[i].Box.height / 2 - 15, 30, BLACK);
+				DrawText("More Speed", ChoiceMenuButtons[i].Box.x + (ChoiceMenuButtons[i].Box.width / 2 - TextWidth / 2), ChoiceMenuButtons[i].Box.y + (ChoiceMenuButtons[i].Box.height / 2) - 15, 30, BLACK);
 				break;
 			}
 			case 2:
 			{
 				int TextWidth = MeasureText("More Fire Rate", 30);
-				DrawText("More Fire Rate", ChoiceMenuButtons[i].Box.x / 2 + TextWidth / 2, ChoiceMenuButtons[i].Box.y + ChoiceMenuButtons[i].Box.height / 2 - 15, 30, BLACK);
+				DrawText("More Fire Rate", ChoiceMenuButtons[i].Box.x + (ChoiceMenuButtons[i].Box.width / 2 - TextWidth / 2), ChoiceMenuButtons[i].Box.y + (ChoiceMenuButtons[i].Box.height / 2) - 15, 30, BLACK);
 				break;
 			}
 			case 3:
 			{
 				int TextWidth = MeasureText("Less Size", 30);
-				DrawText("Less Size", ChoiceMenuButtons[i].Box.x / 2 + TextWidth, ChoiceMenuButtons[i].Box.y + ChoiceMenuButtons[i].Box.height / 2 - 15, 30, BLACK);
-				break;
+				DrawText("Less Size", ChoiceMenuButtons[i].Box.x + (ChoiceMenuButtons[i].Box.width / 2 - TextWidth / 2), ChoiceMenuButtons[i].Box.y + (ChoiceMenuButtons[i].Box.height / 2) - 15, 30, BLACK);
 			}
 
 			default:

@@ -8,24 +8,6 @@
     <Filter Include="Archivos de origen\Player">
       <UniqueIdentifier>{03c6f404-7856-4aac-85ab-54d01070b739}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Ground">
-      <UniqueIdentifier>{ae9796f6-f68f-4f40-8d1c-4f7a9aa8a0a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Enemies">
-      <UniqueIdentifier>{6541dcdb-a931-494b-81a0-fb5a676c2fe6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Bullets">
-      <UniqueIdentifier>{37b0f0f6-7a2f-4d44-b449-84b7e810509f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\choiceMenu">
-      <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Buttons">
-      <UniqueIdentifier>{02b2315a-3bac-4c41-9e2d-5d1e4de0ad9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\HUD">
-      <UniqueIdentifier>{e42a89e3-b8d8-4a9b-99f2-9ea4c2cba5cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\CoreLoop">
       <UniqueIdentifier>{467f1312-e2cc-422a-b74d-03e6cbc33c03}</UniqueIdentifier>
     </Filter>
@@ -35,28 +17,58 @@
     <Filter Include="Archivos de origen\MainMenu">
       <UniqueIdentifier>{fd3577a3-379f-46a5-aece-2855f6814a9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Options">
+      <UniqueIdentifier>{6370646f-d833-4e2d-aa10-8ae3a572053a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\Bullets">
+      <UniqueIdentifier>{37b0f0f6-7a2f-4d44-b449-84b7e810509f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\choiceMenu">
+      <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\Enemies">
+      <UniqueIdentifier>{6541dcdb-a931-494b-81a0-fb5a676c2fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\Ground">
+      <UniqueIdentifier>{ae9796f6-f68f-4f40-8d1c-4f7a9aa8a0a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\HUD">
+      <UniqueIdentifier>{e42a89e3-b8d8-4a9b-99f2-9ea4c2cba5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\HowToPlay">
+      <UniqueIdentifier>{a43039ca-1cc9-4718-9b71-30a4932b0505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Credits">
+      <UniqueIdentifier>{44133d22-9b1c-401a-9c83-534130c1a085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Exit">
+      <UniqueIdentifier>{998ff0e7-a07c-429f-a844-9e99bea8c74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Buttons">
+      <UniqueIdentifier>{02b2315a-3bac-4c41-9e2d-5d1e4de0ad9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
-      <Filter>Archivos de origen\Ground</Filter>
+      <Filter>Archivos de origen\Play\Ground</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp">
-      <Filter>Archivos de origen\Enemies</Filter>
+      <Filter>Archivos de origen\Play\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Bullets\Bullets.cpp">
-      <Filter>Archivos de origen\Bullets</Filter>
+      <Filter>Archivos de origen\Play\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Player\Player.cpp">
       <Filter>Archivos de origen\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp">
-      <Filter>Archivos de origen\choiceMenu</Filter>
+      <Filter>Archivos de origen\Play\choiceMenu</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Buttons\Buttons.cpp">
       <Filter>Archivos de origen\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\HUD\HUD.cpp">
-      <Filter>Archivos de origen\HUD</Filter>
+      <Filter>Archivos de origen\Play\HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\CoreLoop\CoreLoop.cpp">
       <Filter>Archivos de origen\CoreLoop</Filter>
@@ -70,28 +82,40 @@
     <ClCompile Include="..\SRC\main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Options\Options.cpp">
+      <Filter>Archivos de origen\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\HowToPlay\HowToPlay.cpp">
+      <Filter>Archivos de origen\HowToPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\Credits\Credits.cpp">
+      <Filter>Archivos de origen\Credits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRC\Exit\Exit.cpp">
+      <Filter>Archivos de origen\Exit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
       <Filter>Archivos de origen\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Ground\Ground.h">
-      <Filter>Archivos de origen\Ground</Filter>
+      <Filter>Archivos de origen\Play\Ground</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Enemies\Enemies.h">
-      <Filter>Archivos de origen\Enemies</Filter>
+      <Filter>Archivos de origen\Play\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Bullets\Bullets.h">
-      <Filter>Archivos de origen\Bullets</Filter>
+      <Filter>Archivos de origen\Play\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h">
-      <Filter>Archivos de origen\choiceMenu</Filter>
+      <Filter>Archivos de origen\Play\choiceMenu</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Buttons\Buttons.h">
       <Filter>Archivos de origen\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\HUD\HUD.h">
-      <Filter>Archivos de origen\HUD</Filter>
+      <Filter>Archivos de origen\Play\HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\CoreLoop\CoreLoop.h">
       <Filter>Archivos de origen\CoreLoop</Filter>
@@ -101,6 +125,18 @@
     </ClInclude>
     <ClInclude Include="..\SRC\MainMenu\MainMenu.h">
       <Filter>Archivos de origen\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Options\Options.h">
+      <Filter>Archivos de origen\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\HowToPlay\HowToPlay.h">
+      <Filter>Archivos de origen\HowToPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Credits\Credits.h">
+      <Filter>Archivos de origen\Credits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Exit\Exit.h">
+      <Filter>Archivos de origen\Exit</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

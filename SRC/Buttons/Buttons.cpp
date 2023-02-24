@@ -17,6 +17,9 @@ Button ChoiceMenuButtons[maxChoiceMenuButtons];
 const int maxMainMenuButtons = 5;
 Button MainMenuButtons[maxMainMenuButtons];
 
+const int maxExitButtons = 2;
+Button ExitButtons[maxExitButtons];
+
 void initButtons()
 {
 	ChoiceMenuButtons[0].Box = { (baseMenu.x * 2), (baseMenu.y * 3), (float)normalButton.width * ChoiceMenuButtons[0].scale, (float)normalButton.height * ChoiceMenuButtons[0].scale };
@@ -56,6 +59,16 @@ void initButtons()
 	MainMenuButtons[4].Box = { baseMenu.x, baseMenu.y * 8, (float)normalButton.width * MainMenuButtons[4].scale, (float)normalButton.height * MainMenuButtons[4].scale };
 	MainMenuButtons[4].currentTexture = normalButton;
 	MainMenuButtons[4].Pos = { MainMenuButtons[4].Box.x, MainMenuButtons[4].Box.y };
+
+
+
+	ExitButtons[0].Box = { (screenWidth / 2) - ((float)normalButton.width * ExitButtons[0].scale) / 2, (screenHeight / 3) , (float)normalButton.width * ExitButtons[0].scale, (float)normalButton.height * ExitButtons[0].scale};
+	ExitButtons[0].currentTexture = normalButton;
+	ExitButtons[0].Pos = { ExitButtons[0].Box.x, ExitButtons[0].Box.y };
+
+	ExitButtons[1].Box = { (screenWidth / 2) - ((float)normalButton.width * ExitButtons[0].scale) / 2, (screenHeight / 3) * 2, (float)normalButton.width * ExitButtons[1].scale, (float)normalButton.height * ExitButtons[1].scale };
+	ExitButtons[1].currentTexture = normalButton;
+	ExitButtons[1].Pos = { ExitButtons[1].Box.x, ExitButtons[1].Box.y };
 }
 
 void setButtonTexture(Button& button, int State)

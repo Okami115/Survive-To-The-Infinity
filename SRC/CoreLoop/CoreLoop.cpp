@@ -1,6 +1,7 @@
 #include "CoreLoop.h"
 
 #include "../../LIB/INCLUDE/raylib.h"
+
 #include "../Player/Player.h"
 #include "../Enemies/Enemies.h"
 #include "../Ground/Ground.h"
@@ -8,8 +9,12 @@
 #include "../Buttons/Buttons.h"
 #include "../HUD/HUD.h"
 
-#include "../Play/Play.h"
 #include "../MainMenu/MainMenu.h"
+#include "../Play/Play.h"
+#include "../Options/Options.h"
+#include "../HowToPlay/HowToPlay.h"
+#include "../Credits/Credits.h"
+#include "../Exit/Exit.h"
 
 extern Texture ground;
 
@@ -32,6 +37,7 @@ float screenWidth = 600;
 float screenHeight = 800;
 
 int selectScreen = 0;
+bool isRunning = true;
 
 void initWindow()
 {
@@ -71,7 +77,7 @@ void game()
     initWindow();
     initGame();
 
-    while (!WindowShouldClose())
+    while (!WindowShouldClose() && isRunning)
     {
         switch (selectScreen)
         {
@@ -89,21 +95,25 @@ void game()
 
             case 2:
             {
+                optionsUpdate();
                 break;
             }
 
             case 3:
             {
+                howToPlayUpdate();
                 break;
             }
 
             case 4:
             {
+                creditsUpdate();
                 break;
             }
 
             case 5:
             {
+                exitUpdate();
                 break;
             }
         default:
@@ -129,21 +139,25 @@ void game()
 
         case 2:
         {
+            optionsDraw();
             break;
         }
 
         case 3:
         {
+            howToPlayDraw();
             break;
         }
 
         case 4:
         {
+            creditsDraw();
             break;
         }
 
         case 5:
         {
+            exitDraw();
             break;
         }
         default:
