@@ -9,12 +9,11 @@
 #include "../Buttons/Buttons.h"
 #include "../HUD/HUD.h"
 #include "../Pause/Pause.h"
+#include "../Defeat/Defeat.h"
 
 extern bool isChoosing; 
-extern int selectScreen;
 
 extern Player player;
-extern int currentEnemies;
 
 bool isPaused = false;
 
@@ -35,36 +34,24 @@ void playUpdate()
 
     }
     
-    if(isPaused && !isChoosing)
+    if(isPaused && !isChoosing && player.lives > 0)
     {
         pauseUpdate();
     }
-
-    if (IsKeyReleased(KEY_ESCAPE))
-    {
-        isPaused = true;
-    }
-
 
     if (isChoosing)
     {
         choiceMenuUpdate();
     }
 
-
-
     if (player.lives <= 0)
     {
-        initPlayer();
+        defeatUpdate();
+    }
 
-        initEnemies();
-        currentEnemies = 1;
-
-        initBullets();
-
-        initHUD();
-        
-        selectScreen = 0;
+    if (IsKeyReleased(KEY_ESCAPE))
+    {
+        isPaused = true;
     }
 }
 
@@ -88,6 +75,11 @@ void playDraw()
     if (isChoosing)
     {
         choiceMenuDraw();
+    }
+
+    if (player.lives <= 0)
+    {
+        defeatDraw();
     }
 
     hudDraw();

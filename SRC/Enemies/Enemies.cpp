@@ -68,7 +68,7 @@ void enemiesUpdate()
         {
             Vector2 BulletsPos = { Bullets[j].x, Bullets[j].y };
 
-            if (CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i].dest))
+            if (Bullets[j].isTravelling && CheckCollisionCircleRec(BulletsPos,Bullets[j].radius, enemies[i].dest))
             {
 
                 Bullets[j].x = player.pos.x;

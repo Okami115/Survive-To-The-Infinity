@@ -23,6 +23,9 @@ Button ExitButtons[maxExitButtons];
 const int maxPauseButtons = 2;
 Button PauseButtons[maxPauseButtons];
 
+const int maxDefeatButtons = 2;
+extern Button DefeatButtons[maxDefeatButtons];
+
 void initButtons()
 {
 	ChoiceMenuButtons[0].Box = { (baseMenu.x * 2), (baseMenu.y * 3), (float)normalButton.width * ChoiceMenuButtons[0].scale, (float)normalButton.height * ChoiceMenuButtons[0].scale };
@@ -82,6 +85,16 @@ void initButtons()
 	PauseButtons[1].Box = { (baseMenu.x * 2), (baseMenu.y * 6), (float)normalButton.width * PauseButtons[1].scale, (float)normalButton.height * PauseButtons[1].scale };
 	PauseButtons[1].currentTexture = normalButton;
 	PauseButtons[1].Pos = { PauseButtons[1].Box.x, PauseButtons[1].Box.y };
+
+
+
+	DefeatButtons[0].Box = { (baseMenu.x * 2), (baseMenu.y * 3), (float)normalButton.width * DefeatButtons[0].scale, (float)normalButton.height * DefeatButtons[0].scale };
+	DefeatButtons[0].currentTexture = normalButton;
+	DefeatButtons[0].Pos = { DefeatButtons[0].Box.x, DefeatButtons[0].Box.y };
+
+	DefeatButtons[1].Box = { (baseMenu.x * 2), (baseMenu.y * 6), (float)normalButton.width * DefeatButtons[1].scale, (float)normalButton.height * DefeatButtons[1].scale };
+	DefeatButtons[1].currentTexture = normalButton;
+	DefeatButtons[1].Pos = { DefeatButtons[1].Box.x, DefeatButtons[1].Box.y };
 }
 
 void setButtonTexture(Button& button, int State)

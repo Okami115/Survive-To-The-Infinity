@@ -20,9 +20,6 @@
     <Filter Include="Archivos de origen\Play\Bullets">
       <UniqueIdentifier>{37b0f0f6-7a2f-4d44-b449-84b7e810509f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Play\choiceMenu">
-      <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\Play\Enemies">
       <UniqueIdentifier>{6541dcdb-a931-494b-81a0-fb5a676c2fe6}</UniqueIdentifier>
     </Filter>
@@ -50,6 +47,12 @@
     <Filter Include="Archivos de origen\Play\Pause">
       <UniqueIdentifier>{82092680-e370-4781-b59c-b9cd88246e9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Play\ChoiceMenu">
+      <UniqueIdentifier>{e6db9f24-4adb-405d-86b2-bfff96b91348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Play\Defeat">
+      <UniqueIdentifier>{1cc17298-20c3-4c62-95d0-4ba833f0d16d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
@@ -65,7 +68,7 @@
       <Filter>Archivos de origen\Play\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp">
-      <Filter>Archivos de origen\Play\choiceMenu</Filter>
+      <Filter>Archivos de origen\Play\ChoiceMenu</Filter>
     </ClCompile>
     <ClCompile Include="..\SRC\Buttons\Buttons.cpp">
       <Filter>Archivos de origen\Buttons</Filter>
@@ -100,6 +103,9 @@
     <ClCompile Include="..\SRC\Pause\Pause.cpp">
       <Filter>Archivos de origen\Play\Pause</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Defeat\Defeat.cpp">
+      <Filter>Archivos de origen\Play\Defeat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -115,7 +121,7 @@
       <Filter>Archivos de origen\Play\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h">
-      <Filter>Archivos de origen\Play\choiceMenu</Filter>
+      <Filter>Archivos de origen\Play\ChoiceMenu</Filter>
     </ClInclude>
     <ClInclude Include="..\SRC\Buttons\Buttons.h">
       <Filter>Archivos de origen\Buttons</Filter>
@@ -146,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Pause\Pause.h">
       <Filter>Archivos de origen\Play\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Defeat\Defeat.h">
+      <Filter>Archivos de origen\Play\Defeat</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
