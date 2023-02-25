@@ -55,6 +55,9 @@ void hudDraw()
 	DrawText(":", 43, 15, 30, RED);
 	DrawText(TextFormat("%02i", timerMin), 5, 15, 30, RED);
 
+	int scoreTextWidth = MeasureText("00000", 30);
+	DrawText(TextFormat("%05i", player.score), screenWidth - scoreTextWidth * 1.5f, 15, 30, RED);
+
 	DrawRectangle(playerLiveMax.x, playerLiveMax.y, playerLiveMax.width, playerLiveMax.height, RED);
 	DrawRectangle(playerLiveCurrent.x, playerLiveCurrent.y, playerLiveCurrent.width, playerLiveCurrent.height, GREEN);
 

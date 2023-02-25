@@ -102,6 +102,8 @@ void initPlayer()
 
     player.rotation = 0;
 
+    player.score = 0;
+
     player.currentTexture;
 
     player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };

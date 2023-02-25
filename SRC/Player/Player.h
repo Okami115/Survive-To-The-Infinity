@@ -12,6 +12,8 @@ struct Player
 
 	int velocity;
 
+	int score;
+
 	float rateFire;
 
 	int collisionRadius;
