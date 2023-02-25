@@ -67,7 +67,7 @@ void playDraw()
 
     enemiesDraw();
 
-    if (isPaused && !isChoosing)
+    if (isPaused && !isChoosing && player.lives > 0)
     {
         pauseDraw();
     }
