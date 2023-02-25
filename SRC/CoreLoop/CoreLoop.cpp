@@ -34,6 +34,8 @@ extern Texture normalButton;
 extern Texture SelectButton;
 extern Texture BlockedButton;
 
+Font font;
+
 float screenWidth = 600;
 float screenHeight = 800;
 
@@ -67,6 +69,8 @@ void initGame()
     normalButton = LoadTexture("../RES/Button.png");
     SelectButton = LoadTexture("../RES/GreenButton.png");
     BlockedButton = LoadTexture("../RES/RedButton.png");
+
+    font = LoadFont("../RES/Font/Cowboy Movie.ttf");
 
     initPlayer();
     initEnemies();
