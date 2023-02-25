@@ -32,7 +32,13 @@ void choiceMenuUpdate()
 				setButtonTexture(ChoiceMenuButtons[i], 1);
 				if(IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 				{
-					player.lives++;
+					player.lives = player.lives + player.maxLives / 2;
+
+					if (player.lives > player.maxLives)
+					{
+						player.lives = player.maxLives;
+					}
+
 					isChoosing = false;
 					isPaused = false;
 				}

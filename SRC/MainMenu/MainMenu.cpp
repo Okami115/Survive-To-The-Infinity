@@ -21,7 +21,6 @@ void menuUpdate()
 
 	for (int i = 0; i < maxMainMenuButtons; i++)
 	{
-
 		if (CheckCollisionPointRec(MousePos, MainMenuButtons[i].Box))
 		{
 			if (i == 0)
