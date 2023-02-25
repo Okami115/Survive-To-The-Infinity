@@ -17,6 +17,7 @@
 #include "../Exit/Exit.h"
 
 extern Texture ground;
+extern Texture mainMenuBackground;
 
 extern Player player;
 
@@ -51,6 +52,8 @@ void initWindow()
 void initGame()
 {
     ground = LoadTexture("../RES/Ground.png");
+    mainMenuBackground = LoadTexture("../RES/MainBackground.png");
+
     player.currentTexture = LoadTexture("../RES/PlayerFront.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");
     playerBack = LoadTexture("../RES/PlayerBack.png");

@@ -46,23 +46,28 @@ void initButtons()
 
 
 
-	MainMenuButtons[0].Box = { baseMenu.x, baseMenu.y * 2, (float)normalButton.width * MainMenuButtons[0].scale, (float)normalButton.height * MainMenuButtons[0].scale };
+	MainMenuButtons[0].scale = 0.15f;
+	MainMenuButtons[0].Box = { baseMenu.x, baseMenu.y * 3.5f, (float)normalButton.width * MainMenuButtons[0].scale, (float)normalButton.height * MainMenuButtons[0].scale };
 	MainMenuButtons[0].currentTexture = normalButton;
 	MainMenuButtons[0].Pos = { MainMenuButtons[0].Box.x, MainMenuButtons[0].Box.y };
 
-	MainMenuButtons[1].Box = { baseMenu.x, baseMenu.y * 3.5f, (float)normalButton.width * MainMenuButtons[1].scale, (float)normalButton.height * MainMenuButtons[1].scale };
+	MainMenuButtons[1].scale = 0.15f;
+	MainMenuButtons[1].Box = { baseMenu.x, baseMenu.y * 4.7f, (float)normalButton.width * MainMenuButtons[1].scale, (float)normalButton.height * MainMenuButtons[1].scale };
 	MainMenuButtons[1].currentTexture = normalButton;
 	MainMenuButtons[1].Pos = { MainMenuButtons[1].Box.x, MainMenuButtons[1].Box.y };
 
-	MainMenuButtons[2].Box = { baseMenu.x, baseMenu.y * 5, (float)normalButton.width * MainMenuButtons[2].scale, (float)normalButton.height * MainMenuButtons[2].scale };
+	MainMenuButtons[2].scale = 0.15f;
+	MainMenuButtons[2].Box = { baseMenu.x, baseMenu.y * 5.9f, (float)normalButton.width * MainMenuButtons[2].scale, (float)normalButton.height * MainMenuButtons[2].scale };
 	MainMenuButtons[2].currentTexture = normalButton;
 	MainMenuButtons[2].Pos = { MainMenuButtons[2].Box.x, MainMenuButtons[2].Box.y };
 
-	MainMenuButtons[3].Box = { baseMenu.x, baseMenu.y * 6.5f, (float)normalButton.width * MainMenuButtons[3].scale, (float)normalButton.height * MainMenuButtons[3].scale };
+	MainMenuButtons[3].scale = 0.15f;
+	MainMenuButtons[3].Box = { baseMenu.x, baseMenu.y * 7.1f, (float)normalButton.width * MainMenuButtons[3].scale, (float)normalButton.height * MainMenuButtons[3].scale };
 	MainMenuButtons[3].currentTexture = normalButton;
 	MainMenuButtons[3].Pos = { MainMenuButtons[3].Box.x, MainMenuButtons[3].Box.y };
 
-	MainMenuButtons[4].Box = { baseMenu.x, baseMenu.y * 8, (float)normalButton.width * MainMenuButtons[4].scale, (float)normalButton.height * MainMenuButtons[4].scale };
+	MainMenuButtons[4].scale = 0.15f;
+	MainMenuButtons[4].Box = { baseMenu.x, baseMenu.y * 8.3f, (float)normalButton.width * MainMenuButtons[4].scale, (float)normalButton.height * MainMenuButtons[4].scale };
 	MainMenuButtons[4].currentTexture = normalButton;
 	MainMenuButtons[4].Pos = { MainMenuButtons[4].Box.x, MainMenuButtons[4].Box.y };
 

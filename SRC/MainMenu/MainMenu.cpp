@@ -13,6 +13,8 @@ extern Button MainMenuButtons[maxMainMenuButtons];
 
 extern Rectangle baseMenu;
 
+Texture mainMenuBackground;
+
 void menuUpdate()
 {
 	Vector2 MousePos = GetMousePosition();
@@ -77,8 +79,7 @@ void menuUpdate()
 
 void menuDraw()
 {
-	int TextWidth = MeasureText("Survive To The Infinity", 30);
-	DrawText("Survive To The Infinity", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 30, WHITE);
+	DrawTexture(mainMenuBackground, 0, 0, WHITE);
 
 	for (int i = 0; i < maxMainMenuButtons; i++)
 	{
