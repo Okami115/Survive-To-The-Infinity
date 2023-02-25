@@ -155,3 +155,17 @@ void backgroundDraw()
     DrawRectangle(Line3.x, Line3.y, Line3.width, Line3.height, RED);
     DrawRectangle(Line4.x, Line4.y, Line4.width, Line4.height, RED);
 }
+
+void initGround()
+{
+    Background1 = { 0, 0, screenWidth, screenHeight };
+    Background2 = { Background1.x, -Background1.height, screenWidth, screenHeight };
+    Background3 = { Background1.x, Background1.height, screenWidth, screenHeight };
+    Background4 = { -Background1.width, Background1.y, screenWidth, screenHeight };
+    Background5 = { Background1.width, Background1.y, screenWidth, screenHeight };
+    Background6 = { -Background1.width, -Background1.height, screenWidth, screenHeight };
+    Background7 = { Background1.width, -Background1.height, screenWidth, screenHeight };
+    Background8 = { -Background1.width, Background1.height, screenWidth, screenHeight };
+    Background9 = { Background1.width, Background1.height, screenWidth, screenHeight };
+
+}

@@ -3,3 +3,5 @@
 
 void backgroundUpdate();
 void backgroundDraw();
+
+void initGround();

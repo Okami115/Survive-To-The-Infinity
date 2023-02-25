@@ -34,11 +34,6 @@ void playUpdate()
 
     }
     
-    if(isPaused && !isChoosing && player.lives > 0)
-    {
-        pauseUpdate();
-    }
-
     if (isChoosing)
     {
         choiceMenuUpdate();
@@ -49,9 +44,18 @@ void playUpdate()
         defeatUpdate();
     }
 
-    if (IsKeyReleased(KEY_ESCAPE))
+
+
+    if(isPaused && !isChoosing && player.lives > 0)
     {
-        isPaused = true;
+        pauseUpdate();
+    }
+    else
+    {
+        if (IsKeyReleased(KEY_ESCAPE))
+        {
+            isPaused = true;
+        }
     }
 }
 

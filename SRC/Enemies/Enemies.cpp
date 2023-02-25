@@ -44,8 +44,8 @@ void enemiesUpdate()
 
 	    enemies[i].trayectory = normalDir;
 
-	    enemies[i].pos.x -= enemies[i].trayectory.x * enemies[i].velocity * GetFrameTime();
 	    enemies[i].pos.y -= enemies[i].trayectory.y * enemies[i].velocity * GetFrameTime();
+	    enemies[i].pos.x -= enemies[i].trayectory.x * enemies[i].velocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {

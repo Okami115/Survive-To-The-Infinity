@@ -6,6 +6,7 @@
 #include "../Enemies/Enemies.h"
 #include "../Bullets/Bullets.h"
 #include "../HUD/HUD.h"
+#include "../Ground/Ground.h"
 
 extern float screenWidth;
 extern float screenHeight;
@@ -48,6 +49,8 @@ void defeatUpdate()
 
 					initHUD();
 
+					initGround();
+
 					selectScreen = 1;
 					isPaused = false;
 				}
@@ -66,6 +69,7 @@ void defeatUpdate()
 					initBullets();
 
 					initHUD();
+					initGround();
 
 					selectScreen = 0;
 					isPaused = false;

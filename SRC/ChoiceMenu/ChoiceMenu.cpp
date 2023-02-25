@@ -98,9 +98,9 @@ void choiceMenuUpdate()
 				
 		}
 		else
-			{
-				setButtonTexture(ChoiceMenuButtons[i], 0);
-			}
+		{
+			setButtonTexture(ChoiceMenuButtons[i], 0);
+		}
 	}
 }
 
