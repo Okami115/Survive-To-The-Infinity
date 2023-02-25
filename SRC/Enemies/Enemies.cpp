@@ -83,11 +83,11 @@ void enemiesUpdate()
                     enemiesSpawn(enemies[i]);
                     player.currentExperience = player.currentExperience + enemies[i].id + 1;
                     player.score = player.score + (i + 1) * 100;
-                }
 
-                if (currentEnemies < maxEnemies)
-                {
-                   currentEnemies++;
+                    if (currentEnemies < maxEnemies)
+                    {
+                       currentEnemies++;
+                    }
                 }
             }
         }
