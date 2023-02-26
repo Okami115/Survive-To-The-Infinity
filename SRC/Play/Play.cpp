@@ -10,6 +10,7 @@
 #include "../HUD/HUD.h"
 #include "../Pause/Pause.h"
 #include "../Defeat/Defeat.h"
+#include "../Fire/Fire.h"
 
 extern bool isChoosing; 
 
@@ -29,6 +30,8 @@ void playUpdate()
         enemiesUpdate();
 
         bulletsUpdate();
+
+        fireUpdate();
 
         hudUpdate();
 
@@ -68,6 +71,8 @@ void playDraw()
     bulletsDraw();
 
     playerDraw();
+
+    fireDraw();
 
     enemiesDraw();
 

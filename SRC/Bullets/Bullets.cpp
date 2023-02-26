@@ -13,14 +13,17 @@ extern bool isInTheBottom;
 
 const int maxBullets = 100;
 
-static float timer = 0;
+float timerBullets = 0;
+
+bool isShooting = false;
 
 int currentBullets = 0;
-int bulletsVelocity = 1000;
+int bulletsVelocity = 2000;
 
 Bullet Bullets[maxBullets];
 
 Texture textureBullet;
+
 
 void bulletsUpdate()
 {
@@ -53,6 +56,8 @@ void bulletsUpdate()
 				Bullets[i].x = player.pos.x;
 				Bullets[i].y = player.pos.y;
 				Bullets[i].isTravelling = false;
+
+				isShooting = false;
 			}
 		}
 	}
@@ -70,13 +75,16 @@ void bulletsDraw()
 void shoot()
 {
 	
-	timer = timer + GetFrameTime();
-	if (timer > player.rateFire)
+	timerBullets = timerBullets + GetFrameTime();
+
+	if (timerBullets > player.rateFire)
 	{
 		if (IsKeyDown(KEY_UP))
 		{
 			Bullets[currentBullets].bulletsTrayectory = { 0.0f, 1.0f };
 			Bullets[currentBullets].isTravelling = true;
+
+			isShooting = true;
 
 			currentBullets++;
 		}
@@ -85,12 +93,16 @@ void shoot()
 			Bullets[currentBullets].bulletsTrayectory = { 1.0f, 0.0f };
 			Bullets[currentBullets].isTravelling = true;
 
+			isShooting = true;
+
 			currentBullets++;
 		}
 		else if (IsKeyDown(KEY_DOWN))
 		{
 			Bullets[currentBullets].bulletsTrayectory = { 0.0f, -1.0f };
 			Bullets[currentBullets].isTravelling = true;
+
+			isShooting = true;
 
 			currentBullets++;
 		}
@@ -99,10 +111,12 @@ void shoot()
 			Bullets[currentBullets].bulletsTrayectory = { -1.0f, 0.0f };
 			Bullets[currentBullets].isTravelling = true;
 
+			isShooting = true;
+
 			currentBullets++;
 		}
 
-		timer = 0;
+		timerBullets = 0;
 	}
 
 	if (currentBullets == 100)

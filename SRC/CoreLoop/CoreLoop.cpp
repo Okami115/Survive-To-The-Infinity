@@ -27,6 +27,10 @@ extern Player player;
 
 extern Texture textureBullet;
 
+extern Texture fireFront;
+extern Texture fireLeft;
+extern Texture fireRight;
+
 extern Texture playerFront;
 extern Texture playerBack;
 extern Texture playerSideLeft;
@@ -69,6 +73,9 @@ void initGame()
     cursorClicked = LoadTexture("../RES/cursorClicked.png");
 
     textureBullet = LoadTexture("../RES/bullet.png");
+    fireFront = LoadTexture("../RES/playerFireFront.png");
+    fireLeft = LoadTexture("../RES/playerFireLeft.png");
+    fireRight = LoadTexture("../RES/playerFireRight.png");
 
     player.currentTexture = LoadTexture("../RES/playerWalkFront.png");
     playerFront = LoadTexture("../RES/playerWalkFront.png");

@@ -56,6 +56,9 @@
     <Filter Include="Archivos de origen\Cursor">
       <UniqueIdentifier>{96f3d4bb-74f5-4f4a-b73e-f8e3b80a2bea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Play\Fire">
+      <UniqueIdentifier>{6c09d83d-4dd5-4c33-9307-9c902ce1ff65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
@@ -112,6 +115,9 @@
     <ClCompile Include="..\SRC\Cursor\Cursor.cpp">
       <Filter>Archivos de origen\Cursor</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Fire\Fire.cpp">
+      <Filter>Archivos de origen\Play\Fire</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -164,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Cursor\Cursor.h">
       <Filter>Archivos de origen\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Fire\Fire.h">
+      <Filter>Archivos de origen\Play\Fire</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

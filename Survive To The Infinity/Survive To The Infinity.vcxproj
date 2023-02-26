@@ -158,6 +158,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClCompile Include="..\SRC\Defeat\Defeat.cpp" />
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Exit\Exit.cpp" />
+    <ClCompile Include="..\SRC\Fire\Fire.cpp" />
     <ClCompile Include="..\SRC\Ground\Ground.cpp" />
     <ClCompile Include="..\SRC\HowToPlay\HowToPlay.cpp" />
     <ClCompile Include="..\SRC\HUD\HUD.cpp" />
@@ -178,6 +179,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClInclude Include="..\SRC\Defeat\Defeat.h" />
     <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Exit\Exit.h" />
+    <ClInclude Include="..\SRC\Fire\Fire.h" />
     <ClInclude Include="..\SRC\Ground\Ground.h" />
     <ClInclude Include="..\SRC\HowToPlay\HowToPlay.h" />
     <ClInclude Include="..\SRC\HUD\HUD.h" />

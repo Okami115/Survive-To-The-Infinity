@@ -16,6 +16,8 @@ extern bool isInTheTop;
 extern bool isInTheRight;
 extern bool isInTheBottom;
 
+extern bool isShooting;
+
 static float timer = 0;
 static int currentFrame = 1;
 
@@ -80,6 +82,8 @@ void enemiesUpdate()
                 Bullets[j].y = player.pos.y;
                 Bullets[j].isTravelling = false;
                 
+                isShooting = false;
+
                 enemies[i].lives--;
 
 
@@ -122,7 +126,6 @@ void enemiesDraw()
 {
     for (int i = 0; i < currentEnemies; i++)
     {
-        //DrawRectangle(enemies[i].dest.x, enemies[i].dest.y, enemies[i].dest.width, enemies[i].dest.height, RED);
         Vector2 EnemiesOrigin{ 0, 0};
         DrawTexturePro(enemies[i].currentTexture, enemies[i].source, enemies[i].dest, EnemiesOrigin, 0, WHITE);
     }

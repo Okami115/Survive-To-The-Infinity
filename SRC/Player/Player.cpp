@@ -35,7 +35,6 @@ Player player;
 
 void playerUpdate()
 {
-    shoot();
 
     if (player.currentExperience >= player.maxExperience)
     {
@@ -87,6 +86,8 @@ void playerUpdate()
             enemiesSpawn(enemies[i]);
         }
     }
+
+    shoot();
 
     player.source.x = ((float)player.currentTexture.width / 4) * currentFrame;
     player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2, (float)player.collisionRadius * 2 };
