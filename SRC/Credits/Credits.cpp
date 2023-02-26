@@ -3,6 +3,7 @@
 #include "../../LIB/INCLUDE/raylib.h"
 
 extern int selectScreen;
+extern Texture Background;
 
 void creditsUpdate()
 {
@@ -14,5 +15,5 @@ void creditsUpdate()
 
 void creditsDraw()
 {
-
+	DrawTexture(Background, 0, 0, WHITE);
 }

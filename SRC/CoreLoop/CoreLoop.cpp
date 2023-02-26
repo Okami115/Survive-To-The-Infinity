@@ -34,6 +34,8 @@ extern Texture normalButton;
 extern Texture SelectButton;
 extern Texture BlockedButton;
 
+Texture Background;
+
 Font font;
 
 float screenWidth = 600;
@@ -55,6 +57,7 @@ void initGame()
 {
     ground = LoadTexture("../RES/Ground.png");
     mainMenuBackground = LoadTexture("../RES/MainBackground.png");
+    Background = LoadTexture("../RES/Background.png");
 
     player.currentTexture = LoadTexture("../RES/PlayerFront.png");
     playerFront = LoadTexture("../RES/PlayerFront.png");

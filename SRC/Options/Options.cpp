@@ -4,6 +4,8 @@
 
 extern int selectScreen;
 
+extern Texture Background;
+
 void optionsUpdate()
 {
 	if (IsKeyReleased(KEY_ESCAPE))
@@ -15,5 +17,5 @@ void optionsUpdate()
 
 void optionsDraw()
 {
-
+	DrawTexture(Background, 0, 0, WHITE);
 }

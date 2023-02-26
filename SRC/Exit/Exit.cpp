@@ -14,6 +14,8 @@ extern Button ExitButtons[maxExitButtons];
 
 extern Rectangle baseMenu;
 
+extern Texture Background;
+
 void exitUpdate()
 {
 	if (IsKeyReleased(KEY_ESCAPE))
@@ -54,6 +56,8 @@ void exitUpdate()
 
 void exitDraw()
 {
+	DrawTexture(Background, 0, 0, WHITE);
+
 	int TextWidth = MeasureText("EXIT ?", 60);
 	DrawText("EXIT ?", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 60, WHITE);
 
