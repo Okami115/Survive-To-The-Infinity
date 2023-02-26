@@ -18,10 +18,127 @@ extern Button ChoiceMenuButtons[maxChoiceMenuButtons];
 
 extern Rectangle baseMenu;
 
+static int choiceButton = 0;
+
 void choiceMenuUpdate()
 {
 	Vector2 MousePos = GetMousePosition();
 
+	if (IsKeyReleased(KEY_UP))
+	{
+		choiceButton--;
+
+		if (choiceButton < 0)
+		{
+			choiceButton = 4;
+		}
+
+	}
+
+	if (IsKeyReleased(KEY_DOWN))
+	{
+		choiceButton++;
+
+		if (choiceButton > 4)
+		{
+			choiceButton = 0;
+		}
+
+	}
+
+
+	if(choiceButton == 1)
+	{
+		setButtonTexture(ChoiceMenuButtons[0], 1);
+		if (IsKeyReleased(KEY_ENTER))
+		{
+			player.lives = player.lives + player.maxLives / 2;
+
+			if (player.lives > player.maxLives)
+			{
+				player.lives = player.maxLives;
+			}
+
+			isChoosing = false;
+			isPaused = false;
+		}
+		
+	}
+	else
+	{
+		setButtonTexture(ChoiceMenuButtons[0], 0);
+	}
+
+	if (choiceButton == 2)
+	{
+		if (player.velocity == 500)
+		{
+			setButtonTexture(ChoiceMenuButtons[1], 2);
+		}
+		else
+		{
+			setButtonTexture(ChoiceMenuButtons[1], 1);
+			if (IsKeyReleased(KEY_ENTER))
+			{
+				player.velocity = player.velocity + 100;
+				isChoosing = false;
+				isPaused = false;
+			}
+		}
+	}
+	else
+	{
+		setButtonTexture(ChoiceMenuButtons[1], 0);
+	}
+
+
+	if (choiceButton == 3)
+	{
+		if (player.rateFire < 0.2f)
+		{
+			setButtonTexture(ChoiceMenuButtons[2], 2);
+		}
+		else
+		{
+			setButtonTexture(ChoiceMenuButtons[2], 1);
+			if (IsKeyReleased(KEY_ENTER))
+			{
+				player.rateFire = player.rateFire - 0.1f;
+				isChoosing = false;
+				isPaused = false;
+			}
+		}
+	}
+	else
+	{
+		setButtonTexture(ChoiceMenuButtons[2], 0);
+	}
+
+	if (choiceButton == 4)
+	{
+		if (player.collisionRadius == 20)
+		{
+			setButtonTexture(ChoiceMenuButtons[3], 2);
+		}
+		else
+		{
+			setButtonTexture(ChoiceMenuButtons[3], 1);
+			if (IsKeyReleased(KEY_ENTER))
+			{
+				player.collisionRadius = player.collisionRadius - 5;
+				isChoosing = false;
+				isPaused = false;
+			}
+		}
+	}
+	else
+	{
+		setButtonTexture(ChoiceMenuButtons[3], 0);
+	}
+
+
+
+	/*
 	for (int i = 0; i < maxChoiceMenuButtons; i++)
 	{
 
@@ -102,6 +219,7 @@ void choiceMenuUpdate()
 			setButtonTexture(ChoiceMenuButtons[i], 0);
 		}
 	}
+	*/
 }
 
 void choiceMenuDraw()
