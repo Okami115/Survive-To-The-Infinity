@@ -19,6 +19,8 @@ extern Enemy enemies[maxEnemies];
 
 extern bool isPaused;
 
+static float timer = 0;
+static int currentFrame = 1;
 
 bool isChoosing = false;
 
@@ -43,18 +45,38 @@ void playerUpdate()
     if (IsKeyDown(KEY_W))
     {
         player.currentTexture = playerBack;
+        timer = timer + player.velocity * GetFrameTime();
     }
-    if (IsKeyDown(KEY_S))
+    else if (IsKeyDown(KEY_S))
     {
         player.currentTexture = playerFront;
+        timer = timer + player.velocity * GetFrameTime();
     }
-    if (IsKeyDown(KEY_A))
+    else if (IsKeyDown(KEY_A))
     {
         player.currentTexture = playerSideLeft;
+        timer = timer + player.velocity * GetFrameTime();
     }
-    if (IsKeyDown(KEY_D))
+    else if (IsKeyDown(KEY_D))
     {
         player.currentTexture = playerSideRight;
+        timer = timer + player.velocity * GetFrameTime();
+    }
+    else
+    {
+        currentFrame = 0;
+    }
+
+    if (timer > 100)
+    {
+        timer = 0;
+        currentFrame++;
+
+        if (currentFrame > 4)
+        {
+            currentFrame = 1;
+        }
+
     }
 
     for (int i = 0; i < currentEnemies; i++)
@@ -66,7 +88,8 @@ void playerUpdate()
         }
     }
 
-    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2 };
+    player.source.x = ((float)player.currentTexture.width / 4) * currentFrame;
+    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2, (float)player.collisionRadius * 2 };
 
 }
 
@@ -108,7 +131,7 @@ void initPlayer()
 
     player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };
 
-    player.source = { 0, 0, 30, 30};
+    player.source = { 0, 0, (float)player.currentTexture.width / 4, 30};
 
     player.pos = { (float)screenWidth / 2, (float)screenHeight / 2};
 

@@ -22,7 +22,6 @@ static int choiceButton = 0;
 
 void choiceMenuUpdate()
 {
-	Vector2 MousePos = GetMousePosition();
 
 	if (IsKeyReleased(KEY_UP))
 	{
@@ -136,90 +135,6 @@ void choiceMenuUpdate()
 		setButtonTexture(ChoiceMenuButtons[3], 0);
 	}
 
-
-
-	/*
-	for (int i = 0; i < maxChoiceMenuButtons; i++)
-	{
-
-		if (CheckCollisionPointRec(MousePos, ChoiceMenuButtons[i].Box))
-		{
-			if (i == 0)
-			{
-				setButtonTexture(ChoiceMenuButtons[i], 1);
-				if(IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-				{
-					player.lives = player.lives + player.maxLives / 2;
-
-					if (player.lives > player.maxLives)
-					{
-						player.lives = player.maxLives;
-					}
-
-					isChoosing = false;
-					isPaused = false;
-				}
-			}
-			else if (i == 1)
-			{
-				if (player.velocity == 500)
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 2);
-				}
-				else
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 1);
-					if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-					{
-						player.velocity = player.velocity + 100;
-						isChoosing = false;
-						isPaused = false;
-					}
-				}
-			}
-			else if (i == 2)
-			{
-				if (player.rateFire < 0.2f)
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 2);
-				}
-				else
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 1);
-					if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-					{
-						player.rateFire = player.rateFire - 0.1f;
-						isChoosing = false;
-						isPaused = false;
-					}
-				}
-
-			}
-			else if (i == 3)
-			{
-				if (player.collisionRadius == 20)
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 2);
-				}
-				else
-				{
-					setButtonTexture(ChoiceMenuButtons[i], 1);
-					if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-					{
-						player.collisionRadius = player.collisionRadius - 5;
-						isChoosing = false;
-						isPaused = false;
-					}
-				}
-			}
-				
-		}
-		else
-		{
-			setButtonTexture(ChoiceMenuButtons[i], 0);
-		}
-	}
-	*/
 }
 
 void choiceMenuDraw()

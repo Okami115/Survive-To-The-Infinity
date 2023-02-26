@@ -36,8 +36,6 @@ extern Texture BlockedButton;
 
 Texture Background;
 
-Font font;
-
 float screenWidth = 600;
 float screenHeight = 800;
 
@@ -59,21 +57,19 @@ void initGame()
     mainMenuBackground = LoadTexture("../RES/MainBackground.png");
     Background = LoadTexture("../RES/Background.png");
 
-    player.currentTexture = LoadTexture("../RES/PlayerFront.png");
-    playerFront = LoadTexture("../RES/PlayerFront.png");
-    playerBack = LoadTexture("../RES/PlayerBack.png");
-    playerSideLeft = LoadTexture("../RES/PlayerSideleft.png");
-    playerSideRight = LoadTexture("../RES/PlayerSideRight.png");
+    player.currentTexture = LoadTexture("../RES/playerWalkFront.png");
+    playerFront = LoadTexture("../RES/playerWalkFront.png");
+    playerBack = LoadTexture("../RES/playerWalkBack.png");
+    playerSideLeft = LoadTexture("../RES/playerWalkLeft.png");
+    playerSideRight = LoadTexture("../RES/playerWalkRight.png");
 
-    BigEnemy = LoadTexture("../RES/big_enemy.png");
-    MediumEnemy = LoadTexture("../RES/medium_enemy.png");
-    LittleEnemy = LoadTexture("../RES/little_enemy.png");
+    BigEnemy = LoadTexture("../RES/bigEnemy.png");
+    MediumEnemy = LoadTexture("../RES/mediumEnemy.png");
+    LittleEnemy = LoadTexture("../RES/littleEnemy.png");
 
     normalButton = LoadTexture("../RES/Button.png");
     SelectButton = LoadTexture("../RES/GreenButton.png");
     BlockedButton = LoadTexture("../RES/RedButton.png");
-
-    font = LoadFont("../RES/Font/Cowboy Movie.ttf");
 
     initPlayer();
     initEnemies();

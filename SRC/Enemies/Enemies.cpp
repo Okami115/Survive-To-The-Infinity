@@ -16,6 +16,9 @@ extern bool isInTheTop;
 extern bool isInTheRight;
 extern bool isInTheBottom;
 
+static float timer = 0;
+static int currentFrame = 1;
+
 const int maxEnemies = 5;
 
 int currentEnemies = 1;
@@ -46,6 +49,8 @@ void enemiesUpdate()
 
 	    enemies[i].pos.y -= enemies[i].trayectory.y * enemies[i].velocity * GetFrameTime();
 	    enemies[i].pos.x -= enemies[i].trayectory.x * enemies[i].velocity * GetFrameTime();
+
+        timer = timer + enemies[i].velocity * GetFrameTime();
 
         if (IsKeyDown(KEY_W) && !isInTheTop)
         {
@@ -92,6 +97,21 @@ void enemiesUpdate()
             }
         }
 
+        if (timer > 300)
+        {
+            timer = 0;
+            currentFrame++;
+
+            if (currentFrame > 2)
+            {
+                currentFrame = 1;
+            }
+
+        }
+
+
+        enemies[i].source.x = ((float)enemies[i].currentTexture.width / 2) * currentFrame;
+
         enemies[i].dest.x = enemies[i].pos.x;
         enemies[i].dest.y = enemies[i].pos.y;
 
@@ -128,7 +148,7 @@ void enemiesSpawn(Enemy& enemy)
         enemy.lives = 1;
         enemy.velocity = 500;
         enemy.currentTexture = LittleEnemy;
-        enemy.source = { 0, 0, 20, 20 };
+        enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 20 };
         enemy.damage = 5;
 
         enemy.dest.width = 40;
@@ -139,7 +159,7 @@ void enemiesSpawn(Enemy& enemy)
         enemy.lives = 2;
         enemy.velocity = 300;
         enemy.currentTexture = MediumEnemy;
-        enemy.source = { 0, 0, 20, 30 };
+        enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 30 };
         enemy.damage = 7;
 
         enemy.dest.width = 40;
@@ -150,7 +170,7 @@ void enemiesSpawn(Enemy& enemy)
         enemy.lives = 3;
         enemy.velocity = 100;
         enemy.currentTexture = BigEnemy;
-        enemy.source = { 0, 0, 40, 40 };
+        enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 40 };
         enemy.damage = 10;
 
         enemy.dest.width = 80;
