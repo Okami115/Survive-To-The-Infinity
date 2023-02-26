@@ -8,6 +8,7 @@
 #include "../Bullets/Bullets.h"
 #include "../Buttons/Buttons.h"
 #include "../HUD/HUD.h"
+#include "../Cursor/Cursor.h"
 
 #include "../MainMenu/MainMenu.h"
 #include "../Play/Play.h"
@@ -19,7 +20,12 @@
 extern Texture ground;
 extern Texture mainMenuBackground;
 
+extern Texture cursor;
+extern Texture cursorClicked;
+
 extern Player player;
+
+extern Texture textureBullet;
 
 extern Texture playerFront;
 extern Texture playerBack;
@@ -48,6 +54,8 @@ void initWindow()
 
     SetExitKey(KEY_NULL);
 
+    HideCursor();
+
     InitAudioDevice();
 }
 
@@ -56,6 +64,11 @@ void initGame()
     ground = LoadTexture("../RES/Ground.png");
     mainMenuBackground = LoadTexture("../RES/MainBackground.png");
     Background = LoadTexture("../RES/Background.png");
+
+    cursor = LoadTexture("../RES/cursor.png");
+    cursorClicked = LoadTexture("../RES/cursorClicked.png");
+
+    textureBullet = LoadTexture("../RES/bullet.png");
 
     player.currentTexture = LoadTexture("../RES/playerWalkFront.png");
     playerFront = LoadTexture("../RES/playerWalkFront.png");
@@ -85,6 +98,8 @@ void game()
 
     while (!WindowShouldClose() && isRunning)
     {
+        cursorUpdate();
+
         switch (selectScreen)
         {
             case 0:
@@ -170,6 +185,7 @@ void game()
             break;
         }
 
+        cursorDraw();
         EndDrawing();
     }
 

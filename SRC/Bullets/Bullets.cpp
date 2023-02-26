@@ -20,6 +20,8 @@ int bulletsVelocity = 1000;
 
 Bullet Bullets[maxBullets];
 
+Texture textureBullet;
+
 void bulletsUpdate()
 {
 	for (int i = 0; i < maxBullets; i++)
@@ -60,7 +62,7 @@ void bulletsDraw()
 {
 	for (int i = 0; i < maxBullets; i++)
 	{
-		DrawCircle(Bullets[i].x, Bullets[i].y, Bullets[i].radius, SKYBLUE);
+		DrawTexture(textureBullet, Bullets[i].x - Bullets[i].radius, Bullets[i].y - Bullets[i].radius, WHITE);
 	}
 }
 
@@ -110,10 +112,6 @@ void shoot()
 
 }
 
-void deleteBullets()
-{
-
-}
 
 void initBullets()
 {

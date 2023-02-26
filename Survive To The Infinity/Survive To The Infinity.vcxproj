@@ -154,6 +154,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClCompile Include="..\SRC\ChoiceMenu\ChoiceMenu.cpp" />
     <ClCompile Include="..\SRC\CoreLoop\CoreLoop.cpp" />
     <ClCompile Include="..\SRC\Credits\Credits.cpp" />
+    <ClCompile Include="..\SRC\Cursor\Cursor.cpp" />
     <ClCompile Include="..\SRC\Defeat\Defeat.cpp" />
     <ClCompile Include="..\SRC\Enemies\Enemies.cpp" />
     <ClCompile Include="..\SRC\Exit\Exit.cpp" />
@@ -173,6 +174,7 @@ XCOPY "$(SolutionDir)RES" "$(SolutionDir)bin\$(Platform)\$(Configuration)\RES" /
     <ClInclude Include="..\SRC\ChoiceMenu\ChoiceMenu.h" />
     <ClInclude Include="..\SRC\CoreLoop\CoreLoop.h" />
     <ClInclude Include="..\SRC\Credits\Credits.h" />
+    <ClInclude Include="..\SRC\Cursor\Cursor.h" />
     <ClInclude Include="..\SRC\Defeat\Defeat.h" />
     <ClInclude Include="..\SRC\Enemies\Enemies.h" />
     <ClInclude Include="..\SRC\Exit\Exit.h" />

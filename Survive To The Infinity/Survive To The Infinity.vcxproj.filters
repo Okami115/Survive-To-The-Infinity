@@ -53,6 +53,9 @@
     <Filter Include="Archivos de origen\Play\Defeat">
       <UniqueIdentifier>{1cc17298-20c3-4c62-95d0-4ba833f0d16d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Cursor">
+      <UniqueIdentifier>{96f3d4bb-74f5-4f4a-b73e-f8e3b80a2bea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\Ground\Ground.cpp">
@@ -106,6 +109,9 @@
     <ClCompile Include="..\SRC\Defeat\Defeat.cpp">
       <Filter>Archivos de origen\Play\Defeat</Filter>
     </ClCompile>
+    <ClCompile Include="..\SRC\Cursor\Cursor.cpp">
+      <Filter>Archivos de origen\Cursor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SRC\Player\Player.h">
@@ -155,6 +161,9 @@
     </ClInclude>
     <ClInclude Include="..\SRC\Defeat\Defeat.h">
       <Filter>Archivos de origen\Play\Defeat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRC\Cursor\Cursor.h">
+      <Filter>Archivos de origen\Cursor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
