@@ -18,6 +18,10 @@ extern Player player;
 
 bool isPaused = false;
 
+Sound Defeat;
+Sound LevelUp;
+
+bool playSound = false;
 
 void playUpdate()
 {
@@ -40,11 +44,24 @@ void playUpdate()
     if (isChoosing)
     {
         choiceMenuUpdate();
+        if (playSound)
+        {
+            PlaySound(LevelUp);
+            playSound = false;
+        }
     }
 
     if (player.lives <= 0)
     {
         defeatUpdate();
+
+        if (playSound)
+        {
+            PlaySound(Defeat);
+            playSound = false;
+        }
+
+        
     }
 
 

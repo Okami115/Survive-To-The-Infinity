@@ -29,6 +29,8 @@ Texture BigEnemy;
 Texture MediumEnemy;
 Texture LittleEnemy;
 
+Sound Kill;
+
 Enemy enemies[maxEnemies];
 
 void enemiesUpdate()
@@ -92,6 +94,8 @@ void enemiesUpdate()
                     enemiesSpawn(enemies[i]);
                     player.currentExperience = player.currentExperience + enemies[i].id + 1;
                     player.score = player.score + (i + 1) * 100;
+
+                    PlaySound(Kill);
 
                     if (currentEnemies < maxEnemies)
                     {

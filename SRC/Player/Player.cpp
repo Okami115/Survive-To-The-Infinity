@@ -19,6 +19,8 @@ extern Enemy enemies[maxEnemies];
 
 extern bool isPaused;
 
+extern bool playSound;
+
 static float timer = 0;
 static int currentFrame = 1;
 
@@ -31,11 +33,12 @@ Texture playerBack;
 Texture playerSideLeft;
 Texture playerSideRight;
 
+Sound Hurt;
+
 Player player;
 
 void playerUpdate()
 {
-
     if (player.currentExperience >= player.maxExperience)
     {
         levelUp();
@@ -83,8 +86,14 @@ void playerUpdate()
         if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i].dest))
         {
             player.lives = player.lives - enemies[i].damage;
+            PlaySound(Hurt);
             enemiesSpawn(enemies[i]);
         }
+    }
+
+    if (player.lives <= 0)
+    {
+        playSound = true;
     }
 
     shoot();
@@ -107,7 +116,7 @@ void levelUp()
     player.maxExperience = player.maxExperience * experienceEscalation;
     isPaused = true;
     isChoosing = true;
-
+    playSound = true;
 }
 
 void initPlayer()

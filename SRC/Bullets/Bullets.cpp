@@ -24,6 +24,8 @@ Bullet Bullets[maxBullets];
 
 Texture textureBullet;
 
+Sound Shoot;
+
 
 void bulletsUpdate()
 {
@@ -85,6 +87,7 @@ void shoot()
 			Bullets[currentBullets].isTravelling = true;
 
 			isShooting = true;
+			PlaySound(Shoot);
 
 			currentBullets++;
 		}
@@ -94,6 +97,7 @@ void shoot()
 			Bullets[currentBullets].isTravelling = true;
 
 			isShooting = true;
+			PlaySound(Shoot);
 
 			currentBullets++;
 		}
@@ -103,6 +107,7 @@ void shoot()
 			Bullets[currentBullets].isTravelling = true;
 
 			isShooting = true;
+			PlaySound(Shoot);
 
 			currentBullets++;
 		}
@@ -112,6 +117,7 @@ void shoot()
 			Bullets[currentBullets].isTravelling = true;
 
 			isShooting = true;
+			PlaySound(Shoot);
 
 			currentBullets++;
 		}
