@@ -1,17 +1,21 @@
 #pragma once
 #include "../../LIB/INCLUDE/raylib.h"
 
-struct Bullet
+namespace OkamiIndustries
 {
-	float x;
-	float y;
-	int radius;
-	Vector2 bulletsTrayectory;
-	bool isTravelling;
-};
 
-void bulletsUpdate();
-void bulletsDraw();
+	struct Bullet
+	{
+		float x;
+		float y;
+		int radius;
+		Vector2 bulletsTrayectory;
+		bool isTravelling;
+	};
 
-void shoot();
-void initBullets();
+	void bulletsUpdate();
+	void bulletsDraw();
+
+	void shoot();
+	void initBullets();
+}

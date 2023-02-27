@@ -2,6 +2,6 @@
 
 void main()
 {
-	game();
+	OkamiIndustries::game();
 }
 

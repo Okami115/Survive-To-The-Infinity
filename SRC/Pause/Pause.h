@@ -1,4 +1,8 @@
 #pragma once
 
-void pauseUpdate();
-void pauseDraw();
+namespace OkamiIndustries
+{
+
+	void pauseUpdate();
+	void pauseDraw();
+}

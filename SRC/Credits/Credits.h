@@ -1,4 +1,6 @@
 #pragma once
-
-void creditsUpdate();
-void creditsDraw();
+namespace OkamiIndustries
+{
+	void creditsUpdate();
+	void creditsDraw();
+}

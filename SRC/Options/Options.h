@@ -1,4 +1,7 @@
 #pragma once
+namespace OkamiIndustries
+{
+	void optionsUpdate();
+	void optionsDraw();
 
-void optionsUpdate();
-void optionsDraw();
+}

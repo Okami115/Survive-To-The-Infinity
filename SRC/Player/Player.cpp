@@ -5,145 +5,148 @@
 #include "../Bullets/Bullets.h"
 #include "../Enemies/Enemies.h"
 
-
-extern float screenHeight;
-extern float screenWidth;
-
-extern Rectangle Background1;
-extern Vector2 topLeft;
-extern Vector2 bottomRight;
-
-const int maxEnemies = 5;
-extern int currentEnemies;
-extern Enemy enemies[maxEnemies];
-
-extern bool isPaused;
-
-extern bool playSound;
-
-static float timer = 0;
-static int currentFrame = 1;
-
-bool isChoosing = false;
-
-float experienceEscalation = 1.3f;
-
-Texture playerFront;
-Texture playerBack;
-Texture playerSideLeft;
-Texture playerSideRight;
-
-Sound Hurt;
-
-Player player;
-
-void playerUpdate()
+namespace OkamiIndustries
 {
-    if (player.currentExperience >= player.maxExperience)
-    {
-        levelUp();
-    }
 
-    if (IsKeyDown(KEY_W))
-    {
-        player.currentTexture = playerBack;
-        timer = timer + player.velocity * GetFrameTime();
-    }
-    else if (IsKeyDown(KEY_S))
-    {
-        player.currentTexture = playerFront;
-        timer = timer + player.velocity * GetFrameTime();
-    }
-    else if (IsKeyDown(KEY_A))
-    {
-        player.currentTexture = playerSideLeft;
-        timer = timer + player.velocity * GetFrameTime();
-    }
-    else if (IsKeyDown(KEY_D))
-    {
-        player.currentTexture = playerSideRight;
-        timer = timer + player.velocity * GetFrameTime();
-    }
-    else
-    {
-        currentFrame = 0;
-    }
+    extern float screenHeight;
+    extern float screenWidth;
 
-    if (timer > 100)
-    {
-        timer = 0;
-        currentFrame++;
+    extern Rectangle Background1;
+    extern Vector2 topLeft;
+    extern Vector2 bottomRight;
 
-        if (currentFrame > 4)
+    const int maxEnemies = 5;
+    extern int currentEnemies;
+    extern Enemy enemies[maxEnemies];
+
+    extern bool isPaused;
+
+    extern bool playSound;
+
+    static float timer = 0;
+    static int currentFrame = 1;
+
+    bool isChoosing = false;
+
+    float experienceEscalation = 1.3f;
+
+    Texture playerFront;
+    Texture playerBack;
+    Texture playerSideLeft;
+    Texture playerSideRight;
+
+    Sound Hurt;
+
+    Player player;
+
+    void playerUpdate()
+    {
+        if (player.currentExperience >= player.maxExperience)
         {
-            currentFrame = 1;
+            levelUp();
         }
 
-    }
-
-    for (int i = 0; i < currentEnemies; i++)
-    {
-        if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i].dest))
+        if (IsKeyDown(KEY_W))
         {
-            player.lives = player.lives - enemies[i].damage;
-            PlaySound(Hurt);
-            enemiesSpawn(enemies[i]);
+            player.currentTexture = playerBack;
+            timer = timer + player.velocity * GetFrameTime();
         }
+        else if (IsKeyDown(KEY_S))
+        {
+            player.currentTexture = playerFront;
+            timer = timer + player.velocity * GetFrameTime();
+        }
+        else if (IsKeyDown(KEY_A))
+        {
+            player.currentTexture = playerSideLeft;
+            timer = timer + player.velocity * GetFrameTime();
+        }
+        else if (IsKeyDown(KEY_D))
+        {
+            player.currentTexture = playerSideRight;
+            timer = timer + player.velocity * GetFrameTime();
+        }
+        else
+        {
+            currentFrame = 0;
+        }
+
+        if (timer > 100)
+        {
+            timer = 0;
+            currentFrame++;
+
+            if (currentFrame > 4)
+            {
+                currentFrame = 1;
+            }
+
+        }
+
+        for (int i = 0; i < currentEnemies; i++)
+        {
+            if (CheckCollisionCircleRec(player.pos, player.collisionRadius, enemies[i].dest))
+            {
+                player.lives = player.lives - enemies[i].damage;
+                PlaySound(Hurt);
+                enemiesSpawn(enemies[i]);
+            }
+        }
+
+        if (player.lives <= 0)
+        {
+            playSound = true;
+        }
+
+        shoot();
+
+        player.source.x = ((float)player.currentTexture.width / 4) * currentFrame;
+        player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2, (float)player.collisionRadius * 2 };
+
     }
 
-    if (player.lives <= 0)
+    void playerDraw()
     {
+        Vector2 originPlayerPos{ 0, 0 };
+        DrawTexturePro(player.currentTexture, player.source, player.dest, originPlayerPos, player.rotation, WHITE);
+
+    }
+
+    void levelUp()
+    {
+        player.currentExperience = 0;
+        player.maxExperience = player.maxExperience * experienceEscalation;
+        isPaused = true;
+        isChoosing = true;
         playSound = true;
     }
 
-    shoot();
+    void initPlayer()
+    {
+        player.maxLives = 100;
+        player.lives = player.maxLives;
 
-    player.source.x = ((float)player.currentTexture.width / 4) * currentFrame;
-    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2, (float)player.collisionRadius * 2 };
+        player.maxExperience = 5;
+        player.currentExperience = 0;
 
-}
+        player.velocity = 300;
 
-void playerDraw()
-{
-    Vector2 originPlayerPos{ 0, 0 };
-    DrawTexturePro(player.currentTexture, player.source, player.dest, originPlayerPos, player.rotation, WHITE);
+        player.rateFire = 0.5f;
 
-}
+        player.collisionRadius = 40;
 
-void levelUp()
-{
-    player.currentExperience = 0;
-    player.maxExperience = player.maxExperience * experienceEscalation;
-    isPaused = true;
-    isChoosing = true;
-    playSound = true;
-}
+        player.rotation = 0;
 
-void initPlayer()
-{
-    player.maxLives = 100;
-    player.lives = player.maxLives;
+        player.score = 0;
 
-    player.maxExperience = 5;
-    player.currentExperience = 0;
+        player.currentTexture;
 
-    player.velocity = 300;
+        player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };
 
-    player.rateFire = 0.5f;
+        player.source = { 0, 0, (float)player.currentTexture.width / 4, 30};
 
-    player.collisionRadius = 40;
+        player.pos = { (float)screenWidth / 2, (float)screenHeight / 2};
 
-    player.rotation = 0;
-
-    player.score = 0;
-
-    player.currentTexture;
-
-    player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };
-
-    player.source = { 0, 0, (float)player.currentTexture.width / 4, 30};
-
-    player.pos = { (float)screenWidth / 2, (float)screenHeight / 2};
-
-    player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2};
+        player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2};
+    }
 }

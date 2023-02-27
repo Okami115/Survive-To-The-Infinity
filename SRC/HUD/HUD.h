@@ -1,5 +1,9 @@
 #pragma once
 
-void hudUpdate();
-void hudDraw();
-void initHUD();
+namespace OkamiIndustries
+{
+
+	void hudUpdate();
+	void hudDraw();
+	void initHUD();
+}

@@ -1,4 +1,9 @@
 #pragma once
 
-void exitUpdate();
-void exitDraw();
+namespace OkamiIndustries
+{
+
+	void exitUpdate();
+	void exitDraw();
+
+}

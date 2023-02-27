@@ -2,28 +2,31 @@
 #include "../../LIB/INCLUDE/raylib.h"
 #include <iostream>
 
-
-struct Enemy
+namespace OkamiIndustries
 {
-	int lives;
 
-	int velocity;
+	struct Enemy
+	{
+		int lives;
 
-	int damage;
+		int velocity;
 
-	int id;
+		int damage;
 
-	Vector2 pos;
+		int id;
 
-	Texture currentTexture;
+		Vector2 pos;
 
-	Rectangle dest;
-	Rectangle source;
-	Vector2 trayectory;
-};
+		Texture currentTexture;
 
-void initEnemies();
+		Rectangle dest;
+		Rectangle source;
+		Vector2 trayectory;
+	};
 
-void enemiesUpdate();
-void enemiesDraw();
-void enemiesSpawn(Enemy& enemy);
+	void initEnemies();
+
+	void enemiesUpdate();
+	void enemiesDraw();
+	void enemiesSpawn(Enemy& enemy);
+}

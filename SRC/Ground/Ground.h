@@ -1,7 +1,10 @@
 #pragma once
 
+namespace OkamiIndustries
+{
 
-void backgroundUpdate();
-void backgroundDraw();
+	void backgroundUpdate();
+	void backgroundDraw();
 
-void initGround();
+	void initGround();
+}

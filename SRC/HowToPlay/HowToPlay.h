@@ -1,4 +1,7 @@
 #pragma once
+namespace OkamiIndustries
+{
+	void howToPlayUpdate();
+	void howToPlayDraw();
 
-void howToPlayUpdate();
-void howToPlayDraw();
+}

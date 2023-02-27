@@ -1,4 +1,7 @@
 #pragma once
+namespace OkamiIndustries
+{
 
-void cursorUpdate();
-void cursorDraw();
+	void cursorUpdate();
+	void cursorDraw();
+}

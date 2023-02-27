@@ -1,4 +1,8 @@
 #pragma once
 
-void defeatUpdate();
-void defeatDraw();
+namespace OkamiIndustries
+{
+
+	void defeatUpdate();
+	void defeatDraw();
+}

@@ -1,4 +1,8 @@
 #pragma once
 
-void fireUpdate();
-void fireDraw();
+namespace OkamiIndustries
+{
+
+	void fireUpdate();
+	void fireDraw();
+}

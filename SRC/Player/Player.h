@@ -2,34 +2,39 @@
 #include "../../LIB/INCLUDE/raylib.h"
 
 
-struct Player
+
+namespace OkamiIndustries
 {
-	int maxLives;
-	int lives;
 
-	int maxExperience;
-	int currentExperience;
+	struct Player
+	{
+		int maxLives;
+		int lives;
 
-	int velocity;
+		int maxExperience;
+		int currentExperience;
 
-	int score;
+		int velocity;
 
-	float rateFire;
+		int score;
 
-	int collisionRadius;
+		float rateFire;
 
-	int rotation;
+		int collisionRadius;
 
-	Texture currentTexture;
+		int rotation;
 
-	Vector2 pos;
+		Texture currentTexture;
 
-	Rectangle source;
-	Rectangle dest;
-	Rectangle camera;
-};
+		Vector2 pos;
 
-void playerUpdate();
-void playerDraw(); 
-void levelUp();
-void initPlayer();
+		Rectangle source;
+		Rectangle dest;
+		Rectangle camera;
+	};
+
+	void playerUpdate();
+	void playerDraw(); 
+	void levelUp();
+	void initPlayer();
+}

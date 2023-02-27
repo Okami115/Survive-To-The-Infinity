@@ -12,102 +12,107 @@
 #include "../Defeat/Defeat.h"
 #include "../Fire/Fire.h"
 
-extern bool isChoosing; 
 
-extern Player player;
-
-bool isPaused = false;
-
-Sound Defeat;
-Sound LevelUp;
-
-bool playSound = false;
-
-void playUpdate()
+namespace OkamiIndustries
 {
-    if (!isPaused)
+
+    extern bool isChoosing; 
+
+    extern Player player;
+
+    bool isPaused = false;
+
+    Sound Defeat;
+    Sound LevelUp;
+
+    bool playSound = false;
+
+    void playUpdate()
     {
-        playerUpdate();
+        if (!isPaused)
+        {
+            playerUpdate();
 
-        backgroundUpdate();
+            backgroundUpdate();
 
-        enemiesUpdate();
+            enemiesUpdate();
 
-        bulletsUpdate();
+            bulletsUpdate();
 
-        fireUpdate();
+            fireUpdate();
 
-        hudUpdate();
+            hudUpdate();
 
-    }
+        }
     
-    if (isChoosing)
-    {
-        choiceMenuUpdate();
-        if (playSound)
+        if (isChoosing)
         {
-            PlaySound(LevelUp);
-            playSound = false;
+            choiceMenuUpdate();
+            if (playSound)
+            {
+                PlaySound(LevelUp);
+                playSound = false;
+            }
         }
-    }
 
-    if (player.lives <= 0)
-    {
-        defeatUpdate();
-
-        if (playSound)
+        if (player.lives <= 0)
         {
-            PlaySound(Defeat);
-            playSound = false;
-        }
+            defeatUpdate();
+
+            if (playSound)
+            {
+                PlaySound(Defeat);
+                playSound = false;
+            }
 
         
-    }
+        }
 
 
 
-    if(isPaused && !isChoosing && player.lives > 0)
-    {
-        pauseUpdate();
-    }
-    else
-    {
-        if (IsKeyReleased(KEY_ESCAPE))
+        if(isPaused && !isChoosing && player.lives > 0)
         {
-            isPaused = true;
+            pauseUpdate();
+        }
+        else
+        {
+            if (IsKeyReleased(KEY_ESCAPE))
+            {
+                isPaused = true;
+            }
         }
     }
-}
 
-void playDraw()
-{
-    ClearBackground(BLACK);
-
-    backgroundDraw();
-
-    bulletsDraw();
-
-    playerDraw();
-
-    fireDraw();
-
-    enemiesDraw();
-
-    if (isPaused && !isChoosing && player.lives > 0)
+    void playDraw()
     {
-        pauseDraw();
+        ClearBackground(BLACK);
+
+        backgroundDraw();
+
+        bulletsDraw();
+
+        playerDraw();
+
+        fireDraw();
+
+        enemiesDraw();
+
+        if (isPaused && !isChoosing && player.lives > 0)
+        {
+            pauseDraw();
+        }
+
+        if (isChoosing)
+        {
+            choiceMenuDraw();
+        }
+
+        if (player.lives <= 0)
+        {
+            defeatDraw();
+        }
+
+        hudDraw();
+
     }
-
-    if (isChoosing)
-    {
-        choiceMenuDraw();
-    }
-
-    if (player.lives <= 0)
-    {
-        defeatDraw();
-    }
-
-    hudDraw();
-
 }

@@ -8,107 +8,111 @@
 #include "../HUD/HUD.h"
 #include "../Ground/Ground.h"
 
-extern float screenWidth;
-extern float screenHeight;
-
-extern Rectangle baseMenu;
-
-extern Player player;
-
-extern int currentEnemies;
-
-extern int selectScreen;
-
-extern bool isPaused;
-
-const int maxDefeatButtons = 2;
-extern Button DefeatButtons[maxDefeatButtons];
-
-
-void defeatUpdate()
+namespace OkamiIndustries
 {
-	Vector2 MousePos = GetMousePosition();
 
-	isPaused = true;
+	extern float screenWidth;
+	extern float screenHeight;
 
-	for (int i = 0; i < maxDefeatButtons; i++)
+	extern Rectangle baseMenu;
+
+	extern Player player;
+
+	extern int currentEnemies;
+
+	extern int selectScreen;
+
+	extern bool isPaused;
+
+	const int maxDefeatButtons = 2;
+	extern Button DefeatButtons[maxDefeatButtons];
+
+
+	void defeatUpdate()
 	{
-		if (CheckCollisionPointRec(MousePos, DefeatButtons[i].Box))
+		Vector2 MousePos = GetMousePosition();
+
+		isPaused = true;
+
+		for (int i = 0; i < maxDefeatButtons; i++)
 		{
-			if (i == 0)
+			if (CheckCollisionPointRec(MousePos, DefeatButtons[i].Box))
 			{
-				setButtonTexture(DefeatButtons[i], 1);
-				if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+				if (i == 0)
 				{
-					initPlayer();
+					setButtonTexture(DefeatButtons[i], 1);
+					if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+					{
+						initPlayer();
 
-					initEnemies();
-					currentEnemies = 1;
+						initEnemies();
+						currentEnemies = 1;
 
-					initBullets();
+						initBullets();
 
-					initHUD();
+						initHUD();
 
-					initGround();
+						initGround();
 
-					selectScreen = 1;
-					isPaused = false;
+						selectScreen = 1;
+						isPaused = false;
+					}
+				}
+				else if (i == 1)
+				{
+
+					setButtonTexture(DefeatButtons[i], 2);
+					if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+					{
+						initPlayer();
+
+						initEnemies();
+						currentEnemies = 1;
+
+						initBullets();
+
+						initHUD();
+						initGround();
+
+						selectScreen = 0;
+						isPaused = false;
+					}
 				}
 			}
-			else if (i == 1)
+			else
 			{
-
-				setButtonTexture(DefeatButtons[i], 2);
-				if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-				{
-					initPlayer();
-
-					initEnemies();
-					currentEnemies = 1;
-
-					initBullets();
-
-					initHUD();
-					initGround();
-
-					selectScreen = 0;
-					isPaused = false;
-				}
+				setButtonTexture(DefeatButtons[i], 0);
 			}
-		}
-		else
-		{
-			setButtonTexture(DefeatButtons[i], 0);
 		}
 	}
-}
 
-void defeatDraw()
-{
-	int TextWidth = MeasureText("DEFEAT", 50);
-	DrawText("DEFEAT", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 50, WHITE);
-
-	for (int i = 0; i < maxDefeatButtons; i++)
+	void defeatDraw()
 	{
-		DrawTextureEx(DefeatButtons[i].currentTexture, DefeatButtons[i].Pos, DefeatButtons[i].Rotation, DefeatButtons[i].scale, WHITE);
+		int TextWidth = MeasureText("DEFEAT", 50);
+		DrawText("DEFEAT", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 50, WHITE);
 
-		switch (i)
+		for (int i = 0; i < maxDefeatButtons; i++)
 		{
-		case 0:
-		{
-			int TextWidth = MeasureText("try again", 30);
-			DrawText("try again", DefeatButtons[i].Box.x + (DefeatButtons[i].Box.width / 2 - TextWidth / 2), DefeatButtons[i].Box.y + (DefeatButtons[i].Box.height / 2) - 15, 30, BLACK);
-			break;
-		}
-		case 1:
-		{
-			int TextWidth = MeasureText("Return to Menu", 30);
-			DrawText("Return to Menu", DefeatButtons[i].Box.x + (DefeatButtons[i].Box.width / 2 - TextWidth / 2), DefeatButtons[i].Box.y + (DefeatButtons[i].Box.height / 2) - 15, 30, BLACK);
-			break;
-		}
+			DrawTextureEx(DefeatButtons[i].currentTexture, DefeatButtons[i].Pos, DefeatButtons[i].Rotation, DefeatButtons[i].scale, WHITE);
 
-		default:
-			break;
+			switch (i)
+			{
+			case 0:
+			{
+				int TextWidth = MeasureText("try again", 30);
+				DrawText("try again", DefeatButtons[i].Box.x + (DefeatButtons[i].Box.width / 2 - TextWidth / 2), DefeatButtons[i].Box.y + (DefeatButtons[i].Box.height / 2) - 15, 30, BLACK);
+				break;
+			}
+			case 1:
+			{
+				int TextWidth = MeasureText("Return to Menu", 30);
+				DrawText("Return to Menu", DefeatButtons[i].Box.x + (DefeatButtons[i].Box.width / 2 - TextWidth / 2), DefeatButtons[i].Box.y + (DefeatButtons[i].Box.height / 2) - 15, 30, BLACK);
+				break;
+			}
+
+			default:
+				break;
+			}
 		}
 	}
 }

@@ -1,6 +1,9 @@
 #pragma once
 
+namespace OkamiIndustries
+{
 
-void choiceMenuUpdate();
-void choiceMenuDraw();
+	void choiceMenuUpdate();
+	void choiceMenuDraw();
+}
 

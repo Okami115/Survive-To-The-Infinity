@@ -17,245 +17,250 @@
 #include "../Credits/Credits.h"
 #include "../Exit/Exit.h"
 
-extern Texture ground;
-extern Texture mainMenuBackground;
-extern Texture HowToPlayBackground;
-
-extern Texture cursor;
-extern Texture cursorClicked;
-
-extern Player player;
-
-extern Texture textureBullet;
-
-extern Texture fireFront;
-extern Texture fireLeft;
-extern Texture fireRight;
-
-extern Texture playerFront;
-extern Texture playerBack;
-extern Texture playerSideLeft;
-extern Texture playerSideRight;
-
-extern Texture BigEnemy;
-extern Texture MediumEnemy;
-extern Texture LittleEnemy;
-
-extern Texture normalButton;
-extern Texture SelectButton;
-extern Texture BlockedButton;
-
-Texture Background;
-
-Music mainMenuMusic;
-Music gameMusic;
-
-extern Sound Shoot;
-extern Sound Defeat;
-extern Sound LevelUp;
-extern Sound Hurt;
-extern Sound Kill;
-
-float screenWidth = 600;
-float screenHeight = 800;
-
-int selectScreen = 0;
-bool isRunning = true;
-
-void initWindow()
+namespace OkamiIndustries
 {
-    InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.6");
+    extern Texture ground;
+    extern Texture mainMenuBackground;
+    extern Texture HowToPlayBackground;
+    extern Texture CreditsBackground;
 
-    SetExitKey(KEY_NULL);
+    extern Texture cursor;
+    extern Texture cursorClicked;
 
-    HideCursor();
+    extern Player player;
 
-    InitAudioDevice();
-}
+    extern Texture textureBullet;
 
-void initGame()
-{
-    ground = LoadTexture("../RES/Assets/Ground.png");
-    mainMenuBackground = LoadTexture("../RES/Assets/MainBackground.png");
-    HowToPlayBackground = LoadTexture("../RES/Assets/HowToPlayBackground.png");
-    Background = LoadTexture("../RES/Assets/Background.png");
+    extern Texture fireFront;
+    extern Texture fireLeft;
+    extern Texture fireRight;
 
-    cursor = LoadTexture("../RES/Assets/cursor.png");
-    cursorClicked = LoadTexture("../RES/Assets/cursorClicked.png");
+    extern Texture playerFront;
+    extern Texture playerBack;
+    extern Texture playerSideLeft;
+    extern Texture playerSideRight;
 
-    textureBullet = LoadTexture("../RES/Assets/bullet.png");
-    fireFront = LoadTexture("../RES/Assets/playerFireFront.png");
-    fireLeft = LoadTexture("../RES/Assets/playerFireLeft.png");
-    fireRight = LoadTexture("../RES/Assets/playerFireRight.png");
+    extern Texture BigEnemy;
+    extern Texture MediumEnemy;
+    extern Texture LittleEnemy;
 
-    player.currentTexture = LoadTexture("../RES/Assets/playerWalkFront.png");
-    playerFront = LoadTexture("../RES/Assets/playerWalkFront.png");
-    playerBack = LoadTexture("../RES/Assets/playerWalkBack.png");
-    playerSideLeft = LoadTexture("../RES/Assets/playerWalkLeft.png");
-    playerSideRight = LoadTexture("../RES/Assets/playerWalkRight.png");
+    extern Texture normalButton;
+    extern Texture SelectButton;
+    extern Texture BlockedButton;
 
-    BigEnemy = LoadTexture("../RES/Assets/bigEnemy.png");
-    MediumEnemy = LoadTexture("../RES/Assets/mediumEnemy.png");
-    LittleEnemy = LoadTexture("../RES/Assets/littleEnemy.png");
+    Texture Background;
 
-    normalButton = LoadTexture("../RES/Assets/Button.png");
-    SelectButton = LoadTexture("../RES/Assets/GreenButton.png");
-    BlockedButton = LoadTexture("../RES/Assets/RedButton.png");
+    Music mainMenuMusic;
+    Music gameMusic;
 
-    mainMenuMusic = LoadMusicStream("../RES/Music/mainMenuMusic.mp3");
-    gameMusic = LoadMusicStream("../RES/Music/gameMusic.mp3");
+    extern Sound Shoot;
+    extern Sound Defeat;
+    extern Sound LevelUp;
+    extern Sound Hurt;
+    extern Sound Kill;
 
-    Shoot = LoadSound("../RES/SFX/Shoot.wav");
-    Defeat = LoadSound("../RES/SFX/defeat.wav");
-    LevelUp = LoadSound("../RES/SFX/levelUp.wav");
-    Hurt = LoadSound("../RES/SFX/hurt.wav");
-    Kill = LoadSound("../RES/SFX/kill.wav");
+    float screenWidth = 600;
+    float screenHeight = 800;
 
-    SetMusicVolume(mainMenuMusic, 0.5f);
-    SetMusicVolume(gameMusic, 0.5f);
+    int selectScreen = 0;
+    bool isRunning = true;
 
-    initPlayer();
-    initEnemies();
-    initBullets();
-    initButtons();
-    initHUD();
-}
-
-void game()
-{
-    initWindow();
-    initGame();
-
-    PlayMusicStream(mainMenuMusic);
-    PlayMusicStream(gameMusic);
-
-
-    while (!WindowShouldClose() && isRunning)
+    void initWindow()
     {
-        cursorUpdate();
+        InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.6");
 
-        if (selectScreen == 1)
+        SetExitKey(KEY_NULL);
+
+        HideCursor();
+
+        InitAudioDevice();
+    }
+
+    void initGame()
+    {
+        ground = LoadTexture("../RES/Assets/Ground.png");
+        mainMenuBackground = LoadTexture("../RES/Assets/MainBackground.png");
+        HowToPlayBackground = LoadTexture("../RES/Assets/HowToPlayBackground.png");
+        CreditsBackground = LoadTexture("../RES/Assets/CreditsBackground.png");
+        Background = LoadTexture("../RES/Assets/Background.png");
+
+        cursor = LoadTexture("../RES/Assets/cursor.png");
+        cursorClicked = LoadTexture("../RES/Assets/cursorClicked.png");
+
+        textureBullet = LoadTexture("../RES/Assets/bullet.png");
+        fireFront = LoadTexture("../RES/Assets/playerFireFront.png");
+        fireLeft = LoadTexture("../RES/Assets/playerFireLeft.png");
+        fireRight = LoadTexture("../RES/Assets/playerFireRight.png");
+
+        player.currentTexture = LoadTexture("../RES/Assets/playerWalkFront.png");
+        playerFront = LoadTexture("../RES/Assets/playerWalkFront.png");
+        playerBack = LoadTexture("../RES/Assets/playerWalkBack.png");
+        playerSideLeft = LoadTexture("../RES/Assets/playerWalkLeft.png");
+        playerSideRight = LoadTexture("../RES/Assets/playerWalkRight.png");
+
+        BigEnemy = LoadTexture("../RES/Assets/bigEnemy.png");
+        MediumEnemy = LoadTexture("../RES/Assets/mediumEnemy.png");
+        LittleEnemy = LoadTexture("../RES/Assets/littleEnemy.png");
+
+        normalButton = LoadTexture("../RES/Assets/Button.png");
+        SelectButton = LoadTexture("../RES/Assets/GreenButton.png");
+        BlockedButton = LoadTexture("../RES/Assets/RedButton.png");
+
+        mainMenuMusic = LoadMusicStream("../RES/Music/mainMenuMusic.mp3");
+        gameMusic = LoadMusicStream("../RES/Music/gameMusic.mp3");
+
+        Shoot = LoadSound("../RES/SFX/Shoot.wav");
+        Defeat = LoadSound("../RES/SFX/defeat.wav");
+        LevelUp = LoadSound("../RES/SFX/levelUp.wav");
+        Hurt = LoadSound("../RES/SFX/hurt.wav");
+        Kill = LoadSound("../RES/SFX/kill.wav");
+
+        SetMusicVolume(mainMenuMusic, 0.5f);
+        SetMusicVolume(gameMusic, 0.5f);
+
+        initPlayer();
+        initEnemies();
+        initBullets();
+        initButtons();
+        initHUD();
+    }
+
+    void game()
+    {
+        initWindow();
+        initGame();
+
+        PlayMusicStream(mainMenuMusic);
+        PlayMusicStream(gameMusic);
+
+
+        while (!WindowShouldClose() && isRunning)
         {
-            PauseMusicStream(mainMenuMusic);
-            PlayMusicStream(gameMusic);
+            cursorUpdate();
 
-        }
-        else
-        {
-            PauseMusicStream(gameMusic);
-            PlayMusicStream(mainMenuMusic);
-        }
+            if (selectScreen == 1)
+            {
+                PauseMusicStream(mainMenuMusic);
+                PlayMusicStream(gameMusic);
 
-        UpdateMusicStream(gameMusic);
-        UpdateMusicStream(mainMenuMusic);
+            }
+            else
+            {
+                PauseMusicStream(gameMusic);
+                PlayMusicStream(mainMenuMusic);
+            }
 
-        switch (selectScreen)
-        {
+            UpdateMusicStream(gameMusic);
+            UpdateMusicStream(mainMenuMusic);
+
+            switch (selectScreen)
+            {
+                case 0:
+                {
+                    menuUpdate();
+                    break;
+                }
+
+                case 1:
+                {
+                    playUpdate();
+                    break;
+                }
+
+                case 2:
+                {
+                    optionsUpdate();
+                    break;
+                }
+
+                case 3:
+                {
+                    howToPlayUpdate();
+                    break;
+                }
+
+                case 4:
+                {
+                    creditsUpdate();
+                    break;
+                }
+
+                case 5:
+                {
+                    exitUpdate();
+                    break;
+                }
+            default:
+                break;
+            }
+
+            BeginDrawing();
+            ClearBackground(BLACK);
+
+            switch (selectScreen)
+            {
             case 0:
             {
-                menuUpdate();
+                menuDraw();
                 break;
             }
 
             case 1:
             {
-                playUpdate();
+                playDraw();
                 break;
             }
 
             case 2:
             {
-                optionsUpdate();
+                optionsDraw();
                 break;
             }
 
             case 3:
             {
-                howToPlayUpdate();
+                howToPlayDraw();
                 break;
             }
 
             case 4:
             {
-                creditsUpdate();
+                creditsDraw();
                 break;
             }
 
             case 5:
             {
-                exitUpdate();
+                exitDraw();
                 break;
             }
-        default:
-            break;
+            default:
+                break;
+            }
+
+            cursorDraw();
+            EndDrawing();
         }
 
-        BeginDrawing();
-        ClearBackground(BLACK);
-
-        switch (selectScreen)
-        {
-        case 0:
-        {
-            menuDraw();
-            break;
-        }
-
-        case 1:
-        {
-            playDraw();
-            break;
-        }
-
-        case 2:
-        {
-            optionsDraw();
-            break;
-        }
-
-        case 3:
-        {
-            howToPlayDraw();
-            break;
-        }
-
-        case 4:
-        {
-            creditsDraw();
-            break;
-        }
-
-        case 5:
-        {
-            exitDraw();
-            break;
-        }
-        default:
-            break;
-        }
-
-        cursorDraw();
-        EndDrawing();
+        closeGame();
     }
 
-    closeGame();
-}
+    void closeGame()
+    {
+        UnloadTexture(ground);
+        UnloadTexture(player.currentTexture);
+        UnloadTexture(playerFront);
+        UnloadTexture(playerBack);
+        UnloadTexture(playerSideLeft);
+        UnloadTexture(playerSideRight);
+        UnloadTexture(BigEnemy);
+        UnloadTexture(MediumEnemy);
+        UnloadTexture(LittleEnemy);
+        UnloadTexture(normalButton);
+        UnloadTexture(SelectButton);
+        UnloadTexture(BlockedButton);
 
-void closeGame()
-{
-    UnloadTexture(ground);
-    UnloadTexture(player.currentTexture);
-    UnloadTexture(playerFront);
-    UnloadTexture(playerBack);
-    UnloadTexture(playerSideLeft);
-    UnloadTexture(playerSideRight);
-    UnloadTexture(BigEnemy);
-    UnloadTexture(MediumEnemy);
-    UnloadTexture(LittleEnemy);
-    UnloadTexture(normalButton);
-    UnloadTexture(SelectButton);
-    UnloadTexture(BlockedButton);
-
-    CloseAudioDevice();
-    CloseWindow();
+        CloseAudioDevice();
+        CloseWindow();
+    }
 }
