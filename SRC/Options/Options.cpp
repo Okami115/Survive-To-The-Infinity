@@ -79,10 +79,10 @@ void optionsDraw()
 	DrawTexture(Background, 0, 0, WHITE);
 
 	int TextWidth = MeasureText("Volumen", 50);
-	DrawText("Volumen", screenWidth / 2 - TextWidth / 2, baseMenu.height / 6, 50, WHITE);	
+	DrawText("Volumen", screenWidth / 2 - TextWidth / 2, baseMenu.height / 10, 50, WHITE);	
 	
 	int TextWidthESC = MeasureText("ESC to return to the menu", 20);
-	DrawText("ESC to return to the menu", screenWidth / 2 - TextWidthESC / 2, baseMenu.height, 20, WHITE);
+	DrawText("ESC to return to the menu", screenWidth / 2 - TextWidthESC / 2, (screenHeight / 10) * 9, 20, WHITE);
 
 	for (int i = 0; i < maxOptionsButtons; i++)
 	{

@@ -19,6 +19,7 @@
 
 extern Texture ground;
 extern Texture mainMenuBackground;
+extern Texture HowToPlayBackground;
 
 extern Texture cursor;
 extern Texture cursorClicked;
@@ -76,6 +77,7 @@ void initGame()
 {
     ground = LoadTexture("../RES/Assets/Ground.png");
     mainMenuBackground = LoadTexture("../RES/Assets/MainBackground.png");
+    HowToPlayBackground = LoadTexture("../RES/Assets/HowToPlayBackground.png");
     Background = LoadTexture("../RES/Assets/Background.png");
 
     cursor = LoadTexture("../RES/Assets/cursor.png");
