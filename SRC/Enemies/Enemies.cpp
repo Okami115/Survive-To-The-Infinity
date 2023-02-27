@@ -121,7 +121,7 @@ namespace OkamiIndustries
             }
 
 
-            enemies[i].source.x = ((float)enemies[i].currentTexture.width / 2) * currentFrame;
+            enemies[i].source.x = (static_cast <float>(enemies[i].currentTexture.width / 2) * currentFrame);
 
             enemies[i].dest.x = enemies[i].pos.x;
             enemies[i].dest.y = enemies[i].pos.y;
@@ -158,7 +158,7 @@ namespace OkamiIndustries
             enemy.lives = 1;
             enemy.velocity = 500;
             enemy.currentTexture = LittleEnemy;
-            enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 20 };
+            enemy.source = { 0, 0, static_cast <float>(enemy.currentTexture.width / 2), 20 };
             enemy.damage = 5;
 
             enemy.dest.width = 40;
@@ -169,7 +169,7 @@ namespace OkamiIndustries
             enemy.lives = 2;
             enemy.velocity = 300;
             enemy.currentTexture = MediumEnemy;
-            enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 30 };
+            enemy.source = { 0, 0, static_cast <float>(enemy.currentTexture.width / 2), 30 };
             enemy.damage = 7;
 
             enemy.dest.width = 40;
@@ -180,7 +180,7 @@ namespace OkamiIndustries
             enemy.lives = 3;
             enemy.velocity = 100;
             enemy.currentTexture = BigEnemy;
-            enemy.source = { 0, 0, (float)enemy.currentTexture.width / 2, 40 };
+            enemy.source = { 0, 0, static_cast <float>(enemy.currentTexture.width / 2), 40 };
             enemy.damage = 10;
 
             enemy.dest.width = 80;

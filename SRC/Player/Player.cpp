@@ -100,8 +100,8 @@ namespace OkamiIndustries
 
         shoot();
 
-        player.source.x = ((float)player.currentTexture.width / 4) * currentFrame;
-        player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2, (float)player.collisionRadius * 2 };
+        player.source.x = (static_cast <float>(player.currentTexture.width / 4) * currentFrame);
+        player.dest = { player.pos.x - static_cast <float>(player.collisionRadius), player.pos.y - static_cast <float>(player.collisionRadius), static_cast <float>(player.collisionRadius * 2), static_cast <float>(player.collisionRadius * 2 )};
 
     }
 
@@ -141,12 +141,12 @@ namespace OkamiIndustries
 
         player.currentTexture;
 
-        player.camera = { 0, 0, (float)screenWidth, (float)screenHeight };
+        player.camera = { 0, 0, static_cast <float>(screenWidth), static_cast <float>(screenHeight) };
 
-        player.source = { 0, 0, (float)player.currentTexture.width / 4, 30};
+        player.source = { 0, 0, static_cast <float>(player.currentTexture.width / 4), 30};
 
-        player.pos = { (float)screenWidth / 2, (float)screenHeight / 2};
+        player.pos = { static_cast <float>(screenWidth / 2), static_cast <float>(screenHeight / 2)};
 
-        player.dest = { player.pos.x - (float)player.collisionRadius, player.pos.y - (float)player.collisionRadius, (float)player.collisionRadius * 2,  (float)player.collisionRadius * 2};
+        player.dest = { player.pos.x - static_cast <float>(player.collisionRadius), player.pos.y - static_cast <float>(player.collisionRadius), static_cast <float>(player.collisionRadius * 2),  static_cast <float>(player.collisionRadius * 2)};
     }
 }
