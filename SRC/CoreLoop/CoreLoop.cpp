@@ -109,6 +109,9 @@ void initGame()
     Hurt = LoadSound("../RES/SFX/hurt.wav");
     Kill = LoadSound("../RES/SFX/kill.wav");
 
+    SetMusicVolume(mainMenuMusic, 0.5f);
+    SetMusicVolume(gameMusic, 0.5f);
+
     initPlayer();
     initEnemies();
     initBullets();
@@ -123,8 +126,7 @@ void game()
 
     PlayMusicStream(mainMenuMusic);
     PlayMusicStream(gameMusic);
-    SetMusicVolume(mainMenuMusic, 0.01f);
-    SetMusicVolume(gameMusic, 0.01f);
+
 
     while (!WindowShouldClose() && isRunning)
     {

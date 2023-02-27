@@ -24,7 +24,10 @@ const int maxPauseButtons = 2;
 Button PauseButtons[maxPauseButtons];
 
 const int maxDefeatButtons = 2;
-extern Button DefeatButtons[maxDefeatButtons];
+Button DefeatButtons[maxDefeatButtons];
+
+const int maxOptionsButtons = 3;
+Button OptionsButtons[maxOptionsButtons];
 
 void initButtons()
 {
@@ -100,6 +103,22 @@ void initButtons()
 	DefeatButtons[1].Box = { (baseMenu.x * 2), (baseMenu.y * 6), (float)normalButton.width * DefeatButtons[1].scale, (float)normalButton.height * DefeatButtons[1].scale };
 	DefeatButtons[1].currentTexture = normalButton;
 	DefeatButtons[1].Pos = { DefeatButtons[1].Box.x, DefeatButtons[1].Box.y };
+
+
+
+	OptionsButtons[0].scale = 0.1f;
+	OptionsButtons[0].Box = { baseMenu.x, baseMenu.y * 4,  (float)normalButton.width * OptionsButtons[0].scale, (float)normalButton.height * OptionsButtons[0].scale };
+	OptionsButtons[0].currentTexture = normalButton;
+	OptionsButtons[0].Pos = { OptionsButtons[0].Box.x, OptionsButtons[0].Box.y };
+
+	OptionsButtons[1].scale = 0.1f;
+	OptionsButtons[1].Box = { baseMenu.width - ((float)normalButton.width * OptionsButtons[1].scale) / 1.5f, baseMenu.y * 4,  (float)normalButton.width * OptionsButtons[1].scale, (float)normalButton.height * OptionsButtons[1].scale };
+	OptionsButtons[1].currentTexture = normalButton;
+	OptionsButtons[1].Pos = { OptionsButtons[1].Box.x, OptionsButtons[1].Box.y };
+
+	OptionsButtons[2].Box = { (screenWidth / 2) - ((float)normalButton.width * OptionsButtons[2].scale) / 2, baseMenu.y * 6,  (float)normalButton.width * OptionsButtons[2].scale, (float)normalButton.height * OptionsButtons[2].scale };
+	OptionsButtons[2].currentTexture = normalButton;
+	OptionsButtons[2].Pos = { OptionsButtons[2].Box.x, OptionsButtons[2].Box.y };
 }
 
 void setButtonTexture(Button& button, int State)

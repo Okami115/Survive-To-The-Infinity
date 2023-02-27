@@ -22,7 +22,7 @@ extern int selectScreen;
 extern bool isPaused;
 
 const int maxDefeatButtons = 2;
-Button DefeatButtons[maxDefeatButtons];
+extern Button DefeatButtons[maxDefeatButtons];
 
 
 void defeatUpdate()
