@@ -247,8 +247,16 @@ namespace OkamiIndustries
 
     void closeGame()
     {
+        UnloadTexture(mainMenuBackground);
+        UnloadTexture(HowToPlayBackground);
+        UnloadTexture(CreditsBackground);
+        UnloadTexture(cursor);
         UnloadTexture(ground);
-        UnloadTexture(player.currentTexture);
+        UnloadTexture(cursorClicked);
+        UnloadTexture(textureBullet);
+        UnloadTexture(fireFront);
+        UnloadTexture(fireLeft);
+        UnloadTexture(fireRight);
         UnloadTexture(playerFront);
         UnloadTexture(playerBack);
         UnloadTexture(playerSideLeft);
@@ -259,6 +267,16 @@ namespace OkamiIndustries
         UnloadTexture(normalButton);
         UnloadTexture(SelectButton);
         UnloadTexture(BlockedButton);
+        UnloadTexture(Background);
+
+        UnloadMusicStream(mainMenuMusic);
+        UnloadMusicStream(gameMusic);
+
+        UnloadSound(Shoot);
+        UnloadSound(Defeat);
+        UnloadSound(LevelUp);
+        UnloadSound(Hurt);
+        UnloadSound(Kill);
 
         CloseAudioDevice();
         CloseWindow();
