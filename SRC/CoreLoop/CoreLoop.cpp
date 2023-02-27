@@ -67,7 +67,7 @@ namespace OkamiIndustries
 
     void initWindow()
     {
-        InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V0.6");
+        InitWindow(screenWidth, screenHeight, "Survive To The Infinity - Okami Industries - V1.0");
 
         SetExitKey(KEY_NULL);
 
